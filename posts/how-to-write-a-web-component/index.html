@@ -1,0 +1,520 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>从零开始写一个 Web Component - GitHub Corners | 是三水呀( •̀ ω •́ )✧</title><meta name="keywords" content="GitHub,Web Components,lit"><meta name="author" content="Rockivy"><meta name="copyright" content="Rockivy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="从零开始写一个 Web Component - GitHub Corners"><meta name="application-name" content="从零开始写一个 Web Component - GitHub Corners"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="从零开始写一个 Web Component - GitHub Corners"><meta property="og:url" content="http://rockivy.github.io/posts/how-to-write-a-web-component/index.html"><meta property="og:site_name" content="是三水呀( •̀ ω •́ )✧"><meta property="og:description" content="Web Components什么是 Web Components?  Web Components 是一套不同的技术，允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的 web 应用中使用它们。  Web Components 实际上和现在 React&amp;#x2F;Vue 等前端框架"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://rockivy.github.io/img/default_cover.webp"><meta property="article:author" content="Rockivy"><meta property="article:tag" content="‘ivy'"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://rockivy.github.io/img/default_cover.webp"><meta name="description" content="Web Components什么是 Web Components?  Web Components 是一套不同的技术，允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的 web 应用中使用它们。  Web Components 实际上和现在 React&amp;#x2F;Vue 等前端框架"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://rockivy.github.io/posts/how-to-write-a-web-component/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"af4a0eb4d2be2134ac6cacbc322794d71bd32a","Referer":"http://127.0.0.1:4000/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 努力持家小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Rockivy","link":"链接: ","source":"来源: 是三水呀( •̀ ω •́ )✧","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '是三水呀( •̀ ω •́ )✧',
+  title: '从零开始写一个 Web Component - GitHub Corners',
+  postAI: '',
+  pageFillDescription: 'Web Components, 血脉传承, Web Components 框架有哪些？, 过程, github-corners, 是什么？, 为什么?, 怎么做？, 细节, blank 属性为什么默认是 false？, lit 的响应式属性, 打包, 完善, 发布, 实装, 后话什么是是一套不同的技术允许您创建可重用的定制元素它们的功能封装在您的代码之外并且在您的应用中使用它们实际上和现在等前端框架的组件概念十分相似或者倒不如说的单文件组件其实正是借鉴自的概念它本身的方案做了隔离很好地解决了命名污染等问题但除了规范推进缓慢也还有很多开发效率生态兼容等上的不足简单来说其实就好比给予你一些浏览器的权限去定义一个标签来自己使用更多的介绍其实看的介绍即可也无需在这听我这二手的长篇大论我自己本身也向来讨厌通篇理论而热衷实践所以我们不妨动手一试写一个真正实用的成果请到文章末尾取用血脉传承且慢正所谓磨刀不误砍柴工在真正动手之前我们还是了解一下当前的发展状况找一个趁手又可靠的工具框架有哪些最后一次是最后一次更新是不做考虑看起来还在活跃但知名度似乎并不高腾讯旗下实际上暑假我也参与了腾讯的开源活动腾讯犀牛鸟开源人才培养计划并顺利结业对其也贡献了些代码作者当耐特是微信支付团队成员也是此次参与项目活动的导师早期的框架依旧是出品但谷歌对于不是很满意于是另起炉灶地造了最终合并到简而言之而大部分相关的框架其实很多要么年久失修要么其实并没有多少人用意味着很容易遇到问题而无法依靠前人经验可选项似乎只剩下与尽管我也算是的贡献者不过项目本身我觉得并不算腾讯主力在做的事情与参与标准制定的谷歌相比是一个公司层面上支撑团队在做的事情而则是员工的业余开源作品因此在生产环境我更倾向于使用而非当作一个实验学习的地方而则作为生产实践而恰好也提供了的模板相关导航有很多例子可以粘贴自己的包链接到这里发布过程我们这次的目标就是实现一个组件的现况似乎还并不适合大型项目的开发而恰好是一个极小的实现同时其功能目的又能完美发挥独有的优势跨框架先来三段论是什么是一个右上角的图标链接至你的项目同时当鼠标悬停于上时它的尾巴还会发生轻微的抖动预览为什么这件事似乎已经有人做了我们为什么还要重复造轮子首先是用于练手学习其次的话这个仓库的实际上是原生的与的结合体也就是说我们使用它还需要粘贴它的代码配置各种参数才能使用这明显是很麻烦的所以我们的第二个目标是将其封装为一个包用户只需要安装这个包就可以简单地一行代码引入而且可以通过配置参数实现其不同的效果说白了并不是重新造轮子而是在轮子上进一步优化封装我们可以查一下大致有哪些组件以为例我们可以发现其实大部分已有的包要么是组件要么是组件这意味着我们只能在对应的框架中使用而这一简单的功能完全可以使用来实现这也正是它的优势从而解决跨框架的问题无论你喜欢还是抑或是都可以将其作为标签来使用还有一个原因则是已有的组件还不支持我早在数月前提了个但是作者打了标签后就鸽了尽管我打算提重构作者似乎还没有回应所以我决定重新写一个更为通用的组件其实这也是本篇文章诞生的原因以及在上搜索目前的确还没有这个组件怎么做废话少说上号正如前文所述在的血脉压制下我们决定使用框架那么首先建立一个模板不是厕所是的首字母缩写选择前几天打算给提结果刚好那几天有人提了将合并进了开始开发建立仓库开源精神当然是协议啦我们主要在编辑即可就如同一个普通的设置我们需要暴露给用户的属性并根据属性渲染对应的结构我抽取了几个我认为比较重要的属性是否打开新的标签页字体色彩即颜色填充背景色你的项目链接默认为仓库因此可以简略地写为链接可以覆盖自动生成的仓库链接标签鼠标悬浮时的标题反转将色彩与背景色进行交换位置位于左上角还是右上角更多可参见更具体的过程其实是件很无聊的事情无非是查文档写模板写参数以至于我自己懒得在此一一道来而想起那天恰好无聊开了直播朋友帮忙录了下来咳有闪过什么羞耻的东西还请忽略录制从零开始的所以更具体的开发过程介绍就用这个糊弄一下吧随便拖拽进度条了解思路即可看仓库代码可能反而更快细节当然在此过程中也有一些细节问题属性为什么默认是如上我们添加了作为链接的的缩写属性因为在标签上想要实现布尔值只能省略不写普通地给标签属性传值都会被当作字符串解析譬如其实等价于传入了这一字符串仍然会被当作只有当我们不写这个属性时属性数值才会是而我们需要其为时只需要这样写的响应式属性的和属性是响应式的即你修改组件的属性它渲染出来的也会响应式变化但是并没有所以如果你有时候需要控制的也是这时需要给其设置见打包因为我们尽量想要独立使用所以需要配置一下以便在打包时不会将代码排除完善一个成功的项目开发是一部分而文档和维护也是非常重要的点开发完毕后我们还应当补充好文档构建后发布到包构建生成将当前文件夹下和相关文件发布到包好完成组件中有着一些属性和对应注释我需要将这些参数和注释说明转换为文档来给用户阅读虽然直接读代码也行手写文档倒不是什么难事但是以后一旦修改属性或者描述我就要再改一遍文档这合理吗合理手动修改难免同步会有疏漏最优雅的方案应当是根据代码自动生成文档就像做的事那样因为代码本身便是用写的所以这倒不是什么难事当然本身也已经给我们提供了一些方案在参考想要自动生成文档时我发现了这个包可以自动解析生成相关参数的信息在看了后我又发现了这个包可以直接利用其结合注释生成文档而这正是我需要的但这还不够我需要将其直接插入我的这样更直观方便而不是生成一个新的我在其他项目其实也有过类似的需求所以此前我将其封装成了一个包我现在可以直接安装使用什么叫沉淀输出战术后仰生成文档部分代码可见发布终于到了发布阶段我们发布的内容主要包括与是我们编译后直接就可以拿来用的代码则是辅助的类型提示中可以如下设置发布确保处于官方源下执行发布包的命令同时会自动触发我们写在脚本里的进行构建确保每次发布时都是构建后没问题的除了包我们还可以发布到通过已发布的包名来发布即可实装总之先展示一下最后成果代码软件界用自己的东西叫做吃自己的狗粮所以我打算先好好品尝一下在自己的各个项目里开始使用起来的原理使得它可以在任意框架里被使用比如我可以在我的项目中使用也可以甚至原生引入使用我在我的中尝试引用了它只需要在和标签中对应引入和标签即可不使用的话也可以在中来直接使用就此一个基于技术的小组件就实现完毕了除了本身的示例作用我想它本身也是足够实用的也欢迎大家将其用于展示自己的项目后话实质上这个小项目本在国庆就已经完成了但却一直拖到现在才介绍最近终于下定决心做了一个可能决定自己未来走向的选择希望能在下次和大家好好说道说道',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-11 18:27:37',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" /><meta name="generator" content="Hexo 7.2.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">是三水呀( •̀ ω •́ )✧</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.05rem;">AI<sup>1</sup></a><a href="/tags/Blender/" style="font-size: 1.05rem;">Blender<sup>1</sup></a><a href="/tags/CSS/" style="font-size: 1.05rem;">CSS<sup>2</sup></a><a href="/tags/Canvas/" style="font-size: 1.05rem;">Canvas<sup>2</sup></a><a href="/tags/CoolQ/" style="font-size: 1.05rem;">CoolQ<sup>1</sup></a><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 1.05rem;">GitHub<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 1.05rem;">Hexo<sup>2</sup></a><a href="/tags/Linux/" style="font-size: 1.05rem;">Linux<sup>1</sup></a><a href="/tags/MAD/" style="font-size: 1.05rem;">MAD<sup>1</sup></a><a href="/tags/React/" style="font-size: 1.05rem;">React<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 1.05rem;">SEO<sup>1</sup></a><a href="/tags/Web/" style="font-size: 1.05rem;">Web<sup>2</sup></a><a href="/tags/%E4%B8%AD%E4%BC%A0/" style="font-size: 1.05rem;">中传<sup>11</sup></a><a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 1.05rem;">作品<sup>11</sup></a><a href="/tags/%E5%85%BB%E7%8C%AA/" style="font-size: 1.05rem;">养猪<sup>1</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">分享<sup>19</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>3</sup></a><a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 1.05rem;">动画<sup>6</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>14</sup></a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.05rem;">小说<sup>7</sup></a><a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1.05rem;">年终总结<sup>1</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 1.05rem;">日记<sup>12</sup></a><a href="/tags/%E6%97%B6%E5%85%89/" style="font-size: 1.05rem;">时光<sup>16</sup></a><a href="/tags/%E6%98%A5%E8%81%94/" style="font-size: 1.05rem;">春联<sup>1</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 1.05rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B2%99%E9%9B%95/" style="font-size: 1.05rem;">沙雕<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%8E%A9%E5%85%B7/" style="font-size: 1.05rem;">玩具<sup>1</sup></a><a href="/tags/%E7%95%AA%E5%A4%96/" style="font-size: 1.05rem;">番外<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 1.05rem;">目标检测<sup>1</sup></a><a href="/tags/%E7%9E%8E%E9%B8%A1%E5%84%BF%E7%94%BB/" style="font-size: 1.05rem;">瞎鸡儿画<sup>2</sup></a><a href="/tags/%E7%A4%BE%E5%9B%A2/" style="font-size: 1.05rem;">社团<sup>1</sup></a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.05rem;">科幻<sup>5</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">笔记<sup>22</sup></a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 1.05rem;">脚本<sup>1</sup></a><a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">论坛<sup>1</sup></a><a href="/tags/%E9%83%A8%E8%90%BD/" style="font-size: 1.05rem;">部落<sup>4</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.05rem;">项目<sup>3</sup></a><a href="/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" style="font-size: 1.05rem;">高斯模糊<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E6%95%99%E7%A8%8B/" itemprop="url">云游的小教程</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/GitHub/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>GitHub</span></a><a class="article-meta__tags" href="/tags/Web-Components/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Web Components</span></a><a class="article-meta__tags" href="/tags/lit/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>lit</span></a></span></div></div><h1 class="post-title" itemprop="name headline">从零开始写一个 Web Component - GitHub Corners</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2021-09-25T10:27:37.000Z" title="发表于 2021-09-25 18:27:37">2021-09-25</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2021-11-11T10:27:37.000Z" title="更新于 2021-11-11 18:27:37">2021-11-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="从零开始写一个 Web Component - GitHub Corners"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为杭州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>杭州</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/default_cover.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://rockivy.github.io/posts/how-to-write-a-web-component/"><header><a class="post-meta-categories" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E6%95%99%E7%A8%8B/" itemprop="url">云游的小教程</a><a href="/tags/GitHub/" tabindex="-1" itemprop="url">GitHub</a><a href="/tags/Web-Components/" tabindex="-1" itemprop="url">Web Components</a><a href="/tags/lit/" tabindex="-1" itemprop="url">lit</a><h1 id="CrawlerTitle" itemprop="name headline">从零开始写一个 Web Component - GitHub Corners</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Rockivy</span><time itemprop="dateCreated datePublished" datetime="2021-09-25T10:27:37.000Z" title="发表于 2021-09-25 18:27:37">2021-09-25</time><time itemprop="dateCreated datePublished" datetime="2021-11-11T10:27:37.000Z" title="更新于 2021-11-11 18:27:37">2021-11-11</time></header><h2 id="Web-Components"><a href="#Web-Components" class="headerlink" title="Web Components"></a>Web Components</h2><p>什么是 Web Components?</p>
+<blockquote>
+<p>Web Components 是一套不同的技术，允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的 web 应用中使用它们。</p>
+</blockquote>
+<p>Web Components 实际上和现在 React&#x2F;Vue 等前端框架的组件概念十分相似，或者倒不如说 Vue 的 SFC（单文件组件）其实正是借鉴自 Web Components 的概念。<br>它本身 Shadow DOM 的方案做了 CSS 隔离，很好地解决了 CSS 命名污染等问题，但 Web Components 除了规范推进缓慢，也还有很多开发（效率、生态、兼容等）上的不足。</p>
+<p>简单来说 Web Components 其实就好比给予你一些浏览器的 API 权限，去定义一个 HTML 标签来自己使用。<br>更多的介绍其实看 MDN 的介绍即可，也无需在这听我这二手的长篇大论。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components">Web Components | MDN</a></p>
+</blockquote>
+<p>我自己本身也向来讨厌<strong>通篇</strong>理论，而热衷实践，所以我们不妨动手一试，写一个<strong>真正实用</strong>的 Web Component - <code>github-corners</code>。（成果请到文章末尾取用）</p>
+<span id="more"></span>
+
+<p><a target="_blank" rel="noopener" href="https://r2.yunyoujun.cn/images/full-of-reason-but-code-is-error.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://r2.yunyoujun.cn/images/full-of-reason-but-code-is-error.jpg" alt="满口大道理，写十行代码九个报错，一个警告"></a></p>
+<h2 id="血脉传承"><a href="#血脉传承" class="headerlink" title="血脉传承"></a>血脉传承</h2><p>且慢，正所谓磨刀不误砍柴工。在真正动手之前，我们还是了解一下当前 Web Components 的发展状况，找一个趁手又可靠的工具。</p>
+<h3 id="Web-Components-框架有哪些？"><a href="#Web-Components-框架有哪些？" class="headerlink" title="Web Components 框架有哪些？"></a>Web Components 框架有哪些？</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/skatejs/skatejs">skatejs</a>: 最后一次 Release 是 2017，最后一次更新是 2019，不做考虑。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/slimjs/slim.js">slim.js</a>: 看起来还在活跃，但知名度（Star）似乎并不高。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Tencent/omi/">omi</a>: 腾讯旗下，实际上暑假我也参与了腾讯的开源活动 <a target="_blank" rel="noopener" href="https://opensource.tencent.com/summer-of-code">腾讯犀牛鸟开源人才培养计划</a> 并顺利结业，对其也贡献了些代码。作者<a target="_blank" rel="noopener" href="https://github.com/dntzhang">当耐特</a>是微信支付团队成员，也是此次参与项目活动的导师。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/polymer/polymer">Polymer</a>: Google 早期的 Web Components 框架，Since 2013。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lit/lit">lit</a>: 依旧是 Google 出品，但谷歌对于 Polymer 不是很满意，于是另起炉灶地造了 <a target="_blank" rel="noopener" href="https://github.com/lit/lit-element">lit-element</a>，最终合并到 lit，Since Google I&#x2F;O 2018。</li>
+</ul>
+<p>简而言之，Polymer -&gt; lit-element -&gt; lit。</p>
+<p>而大部分 Web Components 相关的框架其实很多要么年久失修，要么其实并没有多少人用（意味着很容易遇到问题而无法依靠前人经验），可选项似乎只剩下 omi 与 lit。</p>
+<p>尽管我也算是 omi 的贡献者，不过项目本身我觉得并不算腾讯主力在做的事情，与参与 W3C 标准制定的谷歌相比，lit 是一个公司层面上支撑团队在做的事情，而 omi 则是员工的业余开源作品。</p>
+<p>因此在生产环境我更倾向于使用 lit 而非 omi。(omi 当作一个实验学习的地方，而 lit 则作为生产实践。)<br>而恰好 vite 也提供了 lit 的模板。</p>
+<p><strong>相关导航</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.webcomponents.org/">WEBCOMPONENTS.ORG</a>: 有很多 Web Components 例子，可以粘贴自己的 npm 包链接到这里<a target="_blank" rel="noopener" href="https://www.webcomponents.org/publish">发布</a>。</li>
+</ul>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="github-corners"><a href="#github-corners" class="headerlink" title="github-corners"></a>github-corners</h3><p>我们这次的目标就是实现一个 github-corners 组件。</p>
+<p>Web Components 的现况似乎还并不适合大型项目的开发，而 GitHub Corners 恰好是一个极小的实现，同时其功能目的，又能完美发挥 Web Components 独有的优势——跨框架。</p>
+<p>先来三段论。</p>
+<h4 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h4><p><a target="_blank" rel="noopener" href="https://github.com/tholman/github-corners">github-corners</a> 是一个右上角的图标，链接至你的 GitHub 项目。同时当鼠标悬停于上时，它的尾巴还会发生轻微的抖动。</p>
+<p>预览: <a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/wc-github-corners/">wc-github-corners</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://r2.yunyoujun.cn/images/github-corners-preview.jpg" alt="GitHub Corners Preview"></p>
+<h4 id="为什么"><a href="#为什么" class="headerlink" title="为什么?"></a>为什么?</h4><p>这件事似乎已经有人做了，我们为什么还要重复造轮子？</p>
+<p>首先是用于练手学习，其次的话，这个仓库的 GitHub Corners 实际上是原生的 HTML 与 CSS 的结合体，也就是说我们使用它还需要粘贴它的代码，配置各种参数才能使用。（这明显是很麻烦的）</p>
+<p>所以我们的第二个目标是将其封装为一个 npm 包，用户只需要安装这个包，就可以简单地一行代码引入，而且可以通过配置参数实现其不同的效果。</p>
+<p>说白了，并不是重新造轮子，而是在轮子上进一步优化封装。</p>
+<p>我们可以查一下大致有哪些组件。（以 github corners 为例）</p>
+<p>我们可以发现其实大部分已有的包，要么是 Vue 组件，要么是 React 组件，这意味着我们只能在对应的框架中使用，而这一简单的功能完全可以使用 Web Components 来实现（这也正是它的优势），从而解决跨框架的问题。（无论你喜欢 Vue 还是 React 抑或是 Angular&#x2F;Svelte，都可以将其作为 HTML 标签来使用。）</p>
+<p>还有一个原因则是，GitHub Corners 已有的 Vue 组件还不支持 Vue3，我早在数月前提了个 <a target="_blank" rel="noopener" href="https://github.com/gluons/vue-gh-corners/issues/55">[Feature Request] Support vue3 | Issue</a>，但是作者打了 <code>enhancement</code> 标签后就鸽了。尽管我打算提 PR 重构，作者似乎还没有回应，所以我决定重新写一个更为通用的组件。（其实这也是本篇文章诞生的原因）</p>
+<blockquote>
+<p>以及在 <a target="_blank" rel="noopener" href="https://www.webcomponents.org/">webcomponents.org</a> 上搜索 github-corners，目前的确还没有这个组件。</p>
+</blockquote>
+<h4 id="怎么做？"><a href="#怎么做？" class="headerlink" title="怎么做？"></a>怎么做？</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://r2.yunyoujun.cn/images/stop-talking-and-open-vscode.jpg" alt="废话少说，上号"><em>废话少说，上号</em></p>
+<p>正如前文所述，在 Google 的血脉压制下，我们决定使用 lit 框架。</p>
+<p>那么，首先建立一个 vite + lit 模板。（wc 不是厕所，是 Web Components 的首字母缩写！）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn create vite wc-github-corners</span><br><span class="line"><span class="comment"># pnpm create vite wc-github-corners</span></span><br></pre></td></tr></table></figure>
+
+<p>选择 <code>lit-ts</code>。（前几天打算给 Vite 提 PR，结果刚好那几天有人提了。）</p>
+<p>lit 2.0 将 <code>lit-element</code> 合并进了 <code>lit</code>。</p>
+<hr>
+<p>开始开发！</p>
+<p>建立仓库 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/wc-github-corners">YunYouJun&#x2F;wc-github-corners | GitHub</a>。（开源精神，当然是 MIT 协议啦！）</p>
+<p>我们主要在 <code>src/index.ts</code> 编辑即可，就如同一个普通的 Class，设置我们需要暴露给用户的属性，并根据属性渲染对应的 DOM 结构。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/YunYouJun/wc-github-corners/blob/main/src/index.ts">src&#x2F;index.ts | wc-github-corners</a></p>
+</blockquote>
+<p>我抽取了几个我认为比较重要的属性。</p>
+<ul>
+<li><code>blank</code>: boolean，是否打开新的标签页</li>
+<li><code>color</code>: string，字体色彩，即 GitHub Logo 颜色</li>
+<li><code>fill</code>: string，填充背景色</li>
+<li><code>repo</code>: string，你的项目链接，默认为 GitHub 仓库，因此可以简略地写为 <code>YunYouJun/wc-github-corners</code></li>
+<li><code>url</code>: string，链接，可以覆盖自动生成的 GitHub 仓库链接</li>
+<li><code>label</code>: string，标签，鼠标悬浮时的标题</li>
+<li><code>reverse</code>: boolean，反转，将 GitHub Logo 色彩与背景色进行交换</li>
+<li><code>position</code>: string，位置，位于左上角还是右上角</li>
+</ul>
+<blockquote>
+<p>更多可参见 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/wc-github-corners#fields">fields | wc-github-corners</a>。</p>
+</blockquote>
+<p>更具体的过程其实是件很无聊的事情，无非是查 <a target="_blank" rel="noopener" href="https://lit.dev/">lit 文档</a>，写模板、写参数。<br>以至于我自己懒得在此一一道来，而想起那天恰好无聊开了直播，朋友帮忙录了下来……（咳，有闪过什么羞耻的东西还请忽略）</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q44y147eW">录制-822719-20210930-200614-500-从零开始的 Web Component | bilibili</a></p>
+<iframe src="//player.bilibili.com/player.html?aid=975762282&bvid=BV1q44y147eW&cid=417146522&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="380"> </iframe>
+
+<p>所以更具体的开发过程介绍，就用这个糊弄一下吧，随便拖拽进度条了解思路即可。看仓库代码可能反而更快。</p>
+<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>当然在此过程中也有一些细节问题。</p>
+<h5 id="blank-属性为什么默认是-false？"><a href="#blank-属性为什么默认是-false？" class="headerlink" title="blank 属性为什么默认是 false？"></a><code>blank</code> 属性为什么默认是 false？</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * A github corner.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@customElement</span>(<span class="string">&#x27;github-corners&#x27;</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">GitHubCorners</span> <span class="keyword">extends</span> <span class="title class_ inherited__">LitElement</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * target=&quot;_blank&quot; for link</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="meta">@property</span>(&#123; <span class="attr">type</span>: <span class="title class_">Boolean</span> &#125;)</span><br><span class="line">    blank = <span class="literal">false</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上，我们添加了 <code>blank</code> 作为链接的 <code>target=&#39;_blank&#39;</code> 的缩写属性。</p>
+<p>因为在 HTML 标签上想要实现布尔值只能省略不写，普通地给 HTML 标签属性传值都会被当作字符串解析。</p>
+<p>譬如 <code>blank=&quot;false&quot;</code> 其实等价于传入了 ‘false’ 这一字符串，仍然会被当作 <code>true</code>。<br>只有当我们不写 blank 这个属性时，blank 属性数值才会是 <code>false</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 而我们需要其为 true 时，只需要这样写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">github-corners</span> <span class="attr">blank</span>&gt;</span><span class="tag">&lt;/<span class="name">github-corners</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="lit-的响应式属性"><a href="#lit-的响应式属性" class="headerlink" title="lit 的响应式属性"></a>lit 的响应式属性</h5><p>lit 的 dom 和属性是响应式的，即你修改组件的属性，它渲染出来的 dom 也会响应式变化。</p>
+<p>但是 style 并没有，所以如果你有时候需要 property 控制的 style 也是，这时需要给其设置 <code>reflect: true</code>。</p>
+<blockquote>
+<p>见 <a target="_blank" rel="noopener" href="https://lit.dev/docs/components/properties/">Reactive properties | Lit</a></p>
+</blockquote>
+<h4 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h4><p>因为我们尽量想要独立使用，所以需要配置一下 vite，以便在打包时不会将 lit 代码排除。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// https://vitejs.dev/config/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">build</span>: &#123;</span><br><span class="line">    <span class="attr">lib</span>: &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;src/index.ts&#x27;</span>,</span><br><span class="line">      <span class="attr">formats</span>: [<span class="string">&#x27;es&#x27;</span>],</span><br><span class="line">      <span class="attr">fileName</span>: <span class="function"><span class="params">format</span> =&gt;</span> <span class="string">`index.<span class="subst">$&#123;format&#125;</span>.js`</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Because we try to use it independently, we don’t exclude lit.</span></span><br><span class="line">    <span class="comment">// rollupOptions: &#123;</span></span><br><span class="line">    <span class="comment">//   external: /^lit/,</span></span><br><span class="line">    <span class="comment">// &#125;,</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h4><p>一个成功的项目，开发是一部分，而文档和维护也是非常重要的点。</p>
+<p>开发完毕后，我们还应当补充好 API 文档，构建后发布到 NPM 包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建</span></span><br><span class="line">npm run build</span><br><span class="line"><span class="comment"># 生成 dist/index.es.js</span></span><br><span class="line"></span><br><span class="line">npm publish</span><br><span class="line"><span class="comment"># 将当前文件夹下 dist 和 types 相关文件发布到 npm 包</span></span><br></pre></td></tr></table></figure>
+
+<p>好，完成。</p>
+<p>组件中有着一些属性和对应注释，我需要将这些参数和注释说明转换为文档来给用户阅读。（虽然直接读代码也行，hhh）</p>
+<p>手写文档倒不是什么难事，但是以后一旦修改属性、或者描述，我就要再改一遍文档，这合理吗？（<del>合理！</del>）</p>
+<p>手动修改难免同步会有疏漏，最优雅的方案应当是根据代码自动生成文档。（就像 <a target="_blank" rel="noopener" href="https://typedoc.org/">TypeDoc</a> 做的事那样）<br>因为代码本身便是用 TypeScript 写的，所以这倒不是什么难事。<br>当然 lit 本身也已经给我们提供了一些方案。</p>
+<p>在参考 <a target="_blank" rel="noopener" href="https://github.com/lit/lit-element-starter-ts">lit-element-starter-ts</a> 想要自动生成文档时，我发现了 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@custom-elements-manifest/analyzer">@custom-elements-manifest&#x2F;analyzer</a> 这个包。<br>可以自动解析 class 生成相关参数的信息。</p>
+<p>在看了 repo 后，我又发现了 <a target="_blank" rel="noopener" href="https://github.com/open-wc/custom-elements-manifest/tree/master/packages/to-markdown">@custom-elements-manifest&#x2F;to-markdown</a> 这个包，可以直接利用其结合注释生成文档，而这正是我需要的。</p>
+<p>但这还不够，我需要将其直接插入我的 README.md（这样更直观方便），而不是生成一个新的 markdown。</p>
+<p>我在其他项目其实也有过类似的需求，所以此前我将其封装成了一个 npm 包，我现在可以直接安装使用。（<del>什么叫沉淀输出，战术后仰</del>）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add @yunyoujun/utils</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; markdown &#125; <span class="keyword">from</span> <span class="string">&quot;@yunyoujun/utils&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>生成文档部分代码可见 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/wc-github-corners/blob/main/scripts/gen-docs.ts">scripts&#x2F;gen-docs.ts</a>。</p>
+<h4 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h4><p>终于到了发布阶段。我们发布的内容主要包括 <code>dist</code> 与 <code>types</code>，<code>dist</code> 是我们编译后直接就可以拿来用的代码，<code>types</code> 则是辅助的类型提示。</p>
+<p><code>package.json</code> 中可以如下设置。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;wc-github-corners&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.1.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dist/index.es.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;exports&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;.&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./dist/index.es.js&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;types&quot;</span><span class="punctuation">:</span> <span class="string">&quot;types/index.d.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;dist&quot;</span><span class="punctuation">,</span> <span class="string">&quot;types&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;analyze&quot;</span><span class="punctuation">:</span> <span class="string">&quot;custom-elements-manifest analyze --globs &#x27;src/index.ts&#x27; --outdir dist&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vite&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsc &amp;&amp; vite build &amp;&amp; npm run copy:demo &amp;&amp; npm run docs:gen&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;copy:demo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cp demo/* dist/&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;preview&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vite preview&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;docs:gen&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run analyze &amp;&amp; esmo scripts/gen-docs.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prepublishOnly&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run build&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="comment">// 。。。</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 发布，确保处于 npm 官方源下</span></span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<p>执行发布包的命令，同时会自动触发我们写在脚本里的 <code>prepublishOnly</code> 进行构建，确保每次发布时，都是构建后没问题的。</p>
+<p>除了 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/wc-github-corners">NPM 包</a>，我们还可以发布到 <a target="_blank" rel="noopener" href="https://www.webcomponents.org/publish">webcomponents.org</a>，通过已发布的 npm 包名来发布即可。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.webcomponents.org/element/wc-github-corners">wc-github-corners | webcomponents.org</a></p>
+</blockquote>
+<h2 id="实装"><a href="#实装" class="headerlink" title="实装"></a>实装</h2><p>总之先展示一下最后成果。</p>
+<ul>
+<li>GitHub: <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/wc-github-corners">wc-github-corners</a></li>
+<li>Demo: <a target="_blank" rel="noopener" href="https://yunyoujun.github.io/wc-github-corners/">https://yunyoujun.github.io/wc-github-corners/</a></li>
+<li>Demo 代码: <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/wc-github-corners/blob/main/demo/index.html">wc-github-corners&#x2F;demo&#x2F;index.html</a></li>
+</ul>
+<p>软件界用自己的东西叫做 dogfooding, (Eating your own dog food - <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%90%83%E8%87%AA%E5%B7%B1%E7%9A%84%E7%8B%97%E7%B2%AE">吃自己的狗粮</a>)</p>
+<p>所以我打算先好好品尝一下，在自己的各个项目里开始使用起来。</p>
+<p>Web Components 的原理，使得它可以在任意框架里被使用，比如我可以在我的 Vue 项目中使用，也可以 React，甚至原生 CDN 引入使用。</p>
+<p>我在我的 <a target="_blank" rel="noopener" href="https://yunyoujun.github.io/char-dust/">char-dust</a> 中尝试引用了它，只需要在 <code>head</code> 和 <code>body</code> 标签中对应引入 CDN 和 <code>github-corners</code> 标签即可，So Easy!</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;module&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/wc-github-corners@latest&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">github-corners</span> <span class="attr">blank</span> <span class="attr">repo</span>=<span class="string">&quot;YunYouJun/char-dust&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">github-corners</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/YunYouJun/char-dust/blob/master/demo/index.html">demo&#x2F;index.html | char-dust</a><br>不使用 CDN 的话，也可以在 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/char-dust/blob/master/demo/src/main.ts"><code>main.ts</code></a> 中 <code>import &quot;wc-github-corners&quot;;</code> 来直接使用。</p>
+</blockquote>
+<p>就此，一个基于 Web Components 技术的小组件就实现完毕了。除了 Demo 本身的示例作用，我想它本身也是足够实用的。<br>也欢迎大家将其用于展示自己的项目。✌️</p>
+<h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>实质上这个小项目本在国庆就已经完成了，但却一直拖到现在才介绍。<br>最近终于下定决心做了一个可能决定自己未来走向的选择，希望能在下次和大家好好说道说道。</p>
+<hr>
+<p>Q.E.D.</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Rockivy</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://rockivy.github.io/posts/how-to-write-a-web-component/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://rockivy.github.io/posts/how-to-write-a-web-component/')">从零开始写一个 Web Component - GitHub Corners</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://rockivy.github.io/posts/how-to-write-a-web-component/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=从零开始写一个 Web Component - GitHub Corners&amp;url=http://rockivy.github.io/posts/how-to-write-a-web-component/&amp;pic=/img/default_cover.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Rockivy.github.io" target="_blank">是三水呀( •̀ ω •́ )✧</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/GitHub/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>GitHub<span class="tagsPageCount">5</span></a><a class="post-meta__box__tags" href="/tags/Web-Components/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Web Components<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/lit/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>lit<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/default_cover.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/how-to-realize-badge-rotation/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">旋转吧！徽章！</div></div></a></div><div class="next-post pull-right"><a href="/posts/quaternion-and-spatial-rotation/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">聊聊四元数与万向锁及其实际意义</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/posts/baidu-seo-about-github-pages/" title="让百度收录你的 GitHub Pages 博客"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2019-03-03</div><div class="title">让百度收录你的 GitHub Pages 博客</div></div></a></div><div><a href="/posts/give-me-money/" title="YunYouJun&#x2F;give-me-money"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2017-12-26</div><div class="title">YunYouJun&#x2F;give-me-money</div></div></a></div><div><a href="/posts/make-el-bot/" title="el-bot &amp; mirai-ts 制作笔记"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2020-06-22</div><div class="title">el-bot &amp; mirai-ts 制作笔记</div></div></a></div><div><a href="/posts/make-hexo-theme-yun/" title="hexo-theme-yun 制作笔记"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2019-04-27</div><div class="title">hexo-theme-yun 制作笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">分享<b style="color:#fff">自己对</b>编程的<b style="color:#fff">热爱</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">分享对<b style="color:#fff">美好生活的向往</b>和<b style="color:#fff">对知识海洋的探索</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Rockivy</h1><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Rockivy" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/PQ781826" target="_blank" title="CSDN"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-csdn2"></use></svg></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-Components"><span class="toc-number">1.</span> <span class="toc-text">Web Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%80%E8%84%89%E4%BC%A0%E6%89%BF"><span class="toc-number">2.</span> <span class="toc-text">血脉传承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Components-%E6%A1%86%E6%9E%B6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">Web Components 框架有哪些？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#github-corners"><span class="toc-number">3.1.</span> <span class="toc-text">github-corners</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="toc-number">3.1.2.</span> <span class="toc-text">为什么?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">怎么做？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">3.1.4.</span> <span class="toc-text">细节</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#blank-%E5%B1%9E%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E9%BB%98%E8%AE%A4%E6%98%AF-false%EF%BC%9F"><span class="toc-number">3.1.4.1.</span> <span class="toc-text">blank 属性为什么默认是 false？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lit-%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B1%9E%E6%80%A7"><span class="toc-number">3.1.4.2.</span> <span class="toc-text">lit 的响应式属性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%8C%85"><span class="toc-number">3.1.5.</span> <span class="toc-text">打包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%96%84"><span class="toc-number">3.1.6.</span> <span class="toc-text">完善</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-number">3.1.7.</span> <span class="toc-text">发布</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%A3%85"><span class="toc-number">4.</span> <span class="toc-text">实装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AF%9D"><span class="toc-number">5.</span> <span class="toc-text">后话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hello-world/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/hello-world/" title="Hello World">Hello World</a><time datetime="2024-05-22T05:21:45.646Z" title="发表于 2024-05-22 13:21:45">2024-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ai-sfc/" title="没有红包封面，但是 AI 春联……"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没有红包封面，但是 AI 春联……"/></a><div class="content"><a class="title" href="/posts/ai-sfc/" title="没有红包封面，但是 AI 春联……">没有红包封面，但是 AI 春联……</a><time datetime="2024-02-09T15:35:00.000Z" title="发表于 2024-02-09 23:35:00">2024-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/valaxy-best-practice/" title="Valaxy - 又一个博客框架暨我的最佳实践"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Valaxy - 又一个博客框架暨我的最佳实践"/></a><div class="content"><a class="title" href="/posts/valaxy-best-practice/" title="Valaxy - 又一个博客框架暨我的最佳实践">Valaxy - 又一个博客框架暨我的最佳实践</a><time datetime="2023-04-24T12:18:53.000Z" title="发表于 2023-04-24 20:18:53">2023-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/want-more-do-less/" title="年终回顾-想的太多，做的太少"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="年终回顾-想的太多，做的太少"/></a><div class="content"><a class="title" href="/posts/want-more-do-less/" title="年终回顾-想的太多，做的太少">年终回顾-想的太多，做的太少</a><time datetime="2023-01-26T12:45:58.000Z" title="发表于 2023-01-26 20:45:58">2023-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/home-firework-red-bag/" title="家·烟花·红包封面"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="家·烟花·红包封面"/></a><div class="content"><a class="title" href="/posts/home-firework-red-bag/" title="家·烟花·红包封面">家·烟花·红包封面</a><time datetime="2023-01-20T22:08:46.000Z" title="发表于 2023-01-21 06:08:46">2023-01-21</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/" title="Rockivy" target="_blank">Rockivy</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://yijuzhan.com/api/word.php?m=js').then(() => {
+    const con = str[0]
+    if (true) {
+      const from = '出自 ' + str[1]
+      const sub = ["在没有动态的日子，也在好好生活。","生活明朗&#44; 万物可爱&#44; 人间值得&#44; 未来可期."]
+      sub.unshift(con, from)
+      window.typed = new Typed('#footer-type-tips', {
+        strings: sub,
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: true,
+        backSpeed: 50,
+      })
+    } else {
+      document.getElementById('footer-type-tips').innerHTML = con
+    }
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/Rockivy" title="我的Github">我的Github</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://blog.csdn.net/PQ781826" title="我的CSDN">我的CSDN</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">88</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">92</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">17</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 0.88rem;">AI<sup>1</sup></a><a href="/tags/Blender/" style="font-size: 0.88rem;">Blender<sup>1</sup></a><a href="/tags/CSS/" style="font-size: 0.88rem;">CSS<sup>2</sup></a><a href="/tags/Canvas/" style="font-size: 0.88rem;">Canvas<sup>2</sup></a><a href="/tags/CoolQ/" style="font-size: 0.88rem;">CoolQ<sup>1</sup></a><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 0.88rem;">GitHub<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem;">Hexo<sup>2</sup></a><a href="/tags/Linux/" style="font-size: 0.88rem;">Linux<sup>1</sup></a><a href="/tags/MAD/" style="font-size: 0.88rem;">MAD<sup>1</sup></a><a href="/tags/React/" style="font-size: 0.88rem;">React<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 0.88rem;">SEO<sup>1</sup></a><a href="/tags/Web/" style="font-size: 0.88rem;">Web<sup>2</sup></a><a href="/tags/%E4%B8%AD%E4%BC%A0/" style="font-size: 0.88rem;">中传<sup>11</sup></a><a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 0.88rem;">作品<sup>11</sup></a><a href="/tags/%E5%85%BB%E7%8C%AA/" style="font-size: 0.88rem;">养猪<sup>1</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>19</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>3</sup></a><a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 0.88rem;">动画<sup>6</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>14</sup></a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 0.88rem;">小说<sup>7</sup></a><a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 0.88rem;">年终总结<sup>1</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.88rem;">日记<sup>12</sup></a><a href="/tags/%E6%97%B6%E5%85%89/" style="font-size: 0.88rem;">时光<sup>16</sup></a><a href="/tags/%E6%98%A5%E8%81%94/" style="font-size: 0.88rem;">春联<sup>1</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 0.88rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B2%99%E9%9B%95/" style="font-size: 0.88rem;">沙雕<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%8E%A9%E5%85%B7/" style="font-size: 0.88rem;">玩具<sup>1</sup></a><a href="/tags/%E7%95%AA%E5%A4%96/" style="font-size: 0.88rem;">番外<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 0.88rem;">目标检测<sup>1</sup></a><a href="/tags/%E7%9E%8E%E9%B8%A1%E5%84%BF%E7%94%BB/" style="font-size: 0.88rem;">瞎鸡儿画<sup>2</sup></a><a href="/tags/%E7%A4%BE%E5%9B%A2/" style="font-size: 0.88rem;">社团<sup>1</sup></a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 0.88rem;">科幻<sup>5</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">笔记<sup>22</sup></a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 0.88rem;">脚本<sup>1</sup></a><a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">论坛<sup>1</sup></a><a href="/tags/%E9%83%A8%E8%90%BD/" style="font-size: 0.88rem;">部落<sup>4</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.88rem;">项目<sup>3</sup></a><a href="/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" style="font-size: 0.88rem;">高斯模糊<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Rockivy 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4557345_b8ltt0rtskq.js?spm=a313x.manage_type_myprojects.i1.10.11183a81E3Gv5U&amp;file=font_4557345_b8ltt0rtskq.js"></script><script defer pjax src="/js/custom.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

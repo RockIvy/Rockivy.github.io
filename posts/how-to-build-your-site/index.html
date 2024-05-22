@@ -1,0 +1,737 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>教你如何从零开始搭建一个属于自己的网站 | 是三水呀( •̀ ω •́ )✧</title><meta name="keywords" content="分享,Hexo,教程"><meta name="author" content="Rockivy"><meta name="copyright" content="Rockivy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="教你如何从零开始搭建一个属于自己的网站"><meta name="application-name" content="教你如何从零开始搭建一个属于自己的网站"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="教你如何从零开始搭建一个属于自己的网站"><meta property="og:url" content="http://rockivy.github.io/posts/how-to-build-your-site/index.html"><meta property="og:site_name" content="是三水呀( •̀ ω •́ )✧"><meta property="og:description" content="写给想要拥有一个自己的网站但没有资金成本的小白与曾经的自己。  前言虽说是网站，对于个人来说，或许一般叫作博客。但我不希望它仅仅是一个博客，而是能够成为一个处于自己现实生活之外、自由、实验、不用畏惧他人眼光甚至可以独断专行的地方。   当然，这本质还是一个新手向教程，也许会有点科普的感觉。我会从整"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://rockivy.github.io/img/default_cover.webp"><meta property="article:author" content="Rockivy"><meta property="article:tag" content="‘ivy'"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://rockivy.github.io/img/default_cover.webp"><meta name="description" content="写给想要拥有一个自己的网站但没有资金成本的小白与曾经的自己。  前言虽说是网站，对于个人来说，或许一般叫作博客。但我不希望它仅仅是一个博客，而是能够成为一个处于自己现实生活之外、自由、实验、不用畏惧他人眼光甚至可以独断专行的地方。   当然，这本质还是一个新手向教程，也许会有点科普的感觉。我会从整"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://rockivy.github.io/posts/how-to-build-your-site/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"af4a0eb4d2be2134ac6cacbc322794d71bd32a","Referer":"http://127.0.0.1:4000/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 努力持家小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Rockivy","link":"链接: ","source":"来源: 是三水呀( •̀ ω •́ )✧","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '是三水呀( •̀ ω •́ )✧',
+  title: '教你如何从零开始搭建一个属于自己的网站',
+  postAI: '',
+  pageFillDescription: '前言, 关键词, 步骤, 安装 Node.js, Git 与 GitHub, 安装 Git, 注册 GitHub, 安装 Hexo, 使用 Hexo 主题, 下载 Hexo 主题, 编辑 Hexo 配置, 自定义主题配置, 生成静态文件, 与远程仓库建立关联, 部署, 备份与自动部署, 开始写作, 文章, 添加标签x2F分类, 页面, FAQ, 视频？, 如何绑定你的自定义域名？, 备案, 更多可能有帮助的内容, 其他平台, 结语写给想要拥有一个自己的网站但没有资金成本的小白与曾经的自己前言虽说是网站对于个人来说或许一般叫作博客但我不希望它仅仅是一个博客而是能够成为一个处于自己现实生活之外自由实验不用畏惧他人眼光甚至可以独断专行的地方当然这本质还是一个新手向教程也许会有点科普的感觉我会从整体上对搭建网站的流程和使用到的技术及步骤进行介绍因为要铺开讲倘若包括轶事实在太多太杂我也会点到为止并让你明白这个东西在网站的过程中起到什么样的作用但我不会就细枝末节展开叙述譬如如何注册账号安装时如何点击下一步我希望看完此篇文章后此前对此方面知识一无所知的小白到最后也能搭建出一个属于自己的站点前提是认识基础的英语单词和善用搜索引擎已经有所基础的同学大可跳读或者直接关闭注释处多为相关补充说明对正常流程没有影响若没有兴趣可以略过与文章相关疑问都可在本文章的中进行评论其他疑问可到对应项目或文章下评论我会尽可能保持更新该文章所使用到的技术和做法并随时接受勘误关键词静态博客无服务器私货步骤安装什么是这得从什么是说起也就是为什么有种从盘古开天辟地开始的感觉没错就是网页的盘古是一种编程语言我们所见到的网页中的交互和逻辑处理几乎都是由完成语法简单易学易用当然也请不要小瞧它虽然它入门门槛低但上限同样也很高包括但不限于实现网站前后端手机桌面应用程序机器学习计算机图形学等在诞生前都运行于浏览器端也就是说它是鱼浏览器是装满了水的水缸年诞生年诞生并成为早期最著名的开源项目可能大家已有所了解后续再说便是一个基于引擎的运行环境当年第一次看到这句话时我也一脸懵逼按照我的理解是鱼就是抽水机则把这台抽水机也装在你电脑上于是你的电脑也有了这个和浏览器相似的水缸也可以在里面运行了当然和浏览器端还是因为自身定位和一些历史原因而有些许区别的不再展开百度百科下载建议下载长期支持版而非当前发布版因为如果是最新版容易出现一些奇妙的全部默认下一步进行安装打开命令提示符打开终端这个不会就请百度吧用户右上角关闭本标签页后续如提到输入命令均默认指打开终端进行输入输入如果得到的版本号与你方才安装的一致那么就已经成功安装安装成功时也默认安装了在此后将会用到是随一起被安装的包管理工具你可以理解成自带的应用商店对了国内使用可能很慢你可以考虑切换为镜像源常用包与命令是出品的另一个包管理工具同样可以管理中的包安装已缓存的包时速度更快你也可以使用它来替代官网下载或通过命令行安装与安装简称目前最为强大易用的编辑器轻量且快速宇宙第一编辑器注意它并不是我们常常听到的常常指的是是一个功能强大的集成开发环境体积也相比都要大上一个量级在此之前我建议你先安装因为安装时可以设置作为默认编辑器是一个开源的分布式版本控制系统由同时也是的作者为了管理开发而开发简而言之是一个版本管理工具譬如设计师设计好了第三版的海报客户却说还是要第一版吧这时便可以通过快速回退到最初的版本你只需要把每次更改的状态会自动进行检测你只要掌握基础的几条命令就可以了告诉而不需要每个版本都保存一份压缩包既方便也能大大节约空间当然这主要只对代码文本起作用因为的本质是记录各行代码的增减倘若是像视频海报这类二进制文件来说便体现不出丝毫优势了当然想要应对这种场景还有下载并安装如果国内速度太慢可以试试这里用户可以下载官网的安装包进行安装也可以直接安装的附带会安装但是比较大类似的工具还有但始终更推荐因为它功能更为强大且它的背后还有更强大的生态注册这一部分内容你也可以放到本地调试并预览成功后并打算线上部署的时候再回过头来看一听便与有所渊源在英文中是懒人饭桶之意则是中心集线器的意思譬如集线器就是所以就是饭桶中心大雾是全世界最大的开源项目与代码托管平台也是众多开发者的交流场所还是全球最大的同性交友网站而代码托管本身用到的正是上文提到的技术注册账号虽然都是英文但不必畏惧也并不会造成使用障碍只要记得最常用的选项含义即可以及善用手头的翻译软件注意注册时的英文用户名将成为你可以使用的免费域名前缀登录为什么要用对于平民玩家来说在初次尝试建立自己的网站时也许并不会有闲钱或者说决心来购买自己的服务器与域名而则提供了这一服务用户们可以利用这一服务部署自己的静态站点点击右上角的新建仓库我这里因为已经有同名仓库所以提示了重复仓库名称务必为你的用户名用户名是英文大小写无所谓但建议统一小写因为你会发现时常切换大小写很麻烦为什么必须这个作为仓库名服务的命名规范同时它也将成为你的专属域名当然你也可以购置自己的专属域名并用它来提供内容点击安装官方文档直接参考文档也是一个不错的选择为嘛使用是一个快速简洁而强大的博客框架基于同样托管于之上生态中拥有众多插件主题你可以基于它快速生成一些静态页面你可以使用别人的各种主题与插件也可以自己定制开发想要的功能为什么不是其他常用的博客框架还有等但这些往往都需要购置自己的服务器而无法静态化地部署到上当然相应的功能和灵活性也大大提升静态化站点还有一个优势就是访问速度往往更快静态网站生成器还有等但这些多是为了写文档而量身定制的你也可以使用它们但是相较的博客定位它们关于博客的插件和主题以及解决办法会少得多提供的功能与几乎都有生成大量文件时甚至比更快不过它是基于语言日后你想对自己的网站进行自定义即便是你编写前端的交互仍旧需要使用所以选择基于的可以降低学习成本你若对有兴趣仍然可以尝试使用但本教程将不会针对进行展开所以对于新手来说使用作为起始点不失为一个好选择当然如果你有钱租服务器并希望快速上手的话就可以考虑考虑或者这里顺带推荐一下小伙伴染川瞳的主题阔落的主题都是很漂亮的主题在终端中输入以下命令如果安装失败可能是没有权限可以尝试头部加上重新执行自然是安装则是的终端工具可以帮助你生成一些模版文件之后再用到代表的是全局安装也就是在任何地方都可以使用否则会只能在安装的目录下使用此时请先通过进入你本地电脑打算存储网站代码的文件夹目录或者右键文件夹命令命令譬如注意这里是你自定义的目录请不要复制粘贴字符后的文字代表注释不需要输入接下来输入你的名字正是因为我们之前安装了这一个包所以我们可以在终端中使用这一命令初始化博客的模版文件后面跟的是你要新建的文件夹最好和你此前新建的仓库名一致进入你的博客文件夹你的名字默认安装所有文件中提到的包你也可以缩写成代表开启本地的服务器这时你就可以打开浏览器在地址栏中输入就可以看到本地的网页了按中断服务器的运行至此基础的模版页面便已经搭建好了使用主题默认提供的是主题默认主题样式简单功能较少所以大多数人并不会使用默认主题这里将示范如何使用我自己开发的主题顺带求代表收藏就在点进链接后的右上角你可以前往云游君的小站查看示例效果的速度检测谷歌谷歌浏览器检测分数当然你也可以在发现更多有趣美丽的主题使用方法大致相同当你具备一定开发能力时你可以开发属于自己的主题或者为提交添加你想要的功能使用文档更详细的配置进阶指南示例效果下载主题进入终端确保路径处于你此前使用初始化好的文件夹目录下即后简称为目录输入以下命令实际上你也可以直接在中使用终端旧版本方案不推荐这里便使用到了我们此前安装的即代表克隆也就是复制的作用我的主题托管于链接便是主题所在的地址则代表放在你文件夹下的文件夹里没有该文件夹会自动新建编辑配置右键文件夹使用打开或者进入打开你存储网站的文件夹此后操作都将默认你已处于该工作目录下在你此前通过初始化生成的文件目录下会存在一个文件是文件的后缀名是不是一种标记语言的缩写但它实际上还是一种标记语言你可以将其理解为存储数据的一种文本格式这也是其诞生的目的如果你听说过那你就更能明白它是干什么的了它是的配置文件关于各配置选项的意义你可以查看配置在中找到这个字段将其后的修改为是一种模板引擎可以渲染为字符串类似的还有等语法和设计理念有所不同是一种预处理器可以渲染为类似的还有同样只是语法和设计理念有所差异由于我的主题使用了和而自带的一般是与所以你可能还需要输入以下命令安装渲染器如果出问题可以换安装试试这时再像此前那般使用重新启动服务器你就可以看到一个不一样的主题风格的页面了自定义主题配置当启动时会使用主题的默认配置但这不一定是你想要的所以你可以对主题进行一些自定义主题的配置文件放在文件中且慢你最好不要直接修改主题的默认配置倘若日后主题升级更新了怎么办难道还要重新配置一遍吗最好的解决方案就是在博客根目录下不是主题目录新建自废弃本主题将自定义配置与默认配置进行合并因此你只需要在文件中自定义你需要的配置即可其余仍将自动采用默认配置譬如我们需要更换头像在中填写你可以在文件夹下新建文件夹用来存储你的图片也可以使用等图床工具配合上传你的图片文件获取在线链接你的头像图片地址更换主题色彩比如换成黑色黑色的十六进制颜色代码是这时你的主题色调就会变为黑色这只是一个配置项的简单示例更多配置你可以参考主题文档或直接在中查看并根据自己的需要进行配置生成静态文件至今我们的工作都是在本地进行想必你也很想放到线上与小伙伴们分享这便轮到了的出场不过只支持纯静态文件所以我们需要使用以下命令先来生成站点的静态文件如果进行多次生成为了避免受错误缓存影响最好使用先清除一遍缩写为此时你的文件夹目录下会出现这个文件夹里面存放的就是你站点的静态文件与远程仓库建立关联接下来我们将本地的仓库与此前在上建立的仓库建立关联初始化仓库只需要执行一次即可在将其部署到上之前我们最好先建立一个分支什么是分支提供了版本管理功能其中还有一个分支功能你现在可以简单地将其理解为平行世界你的名字部署后将默认使用你的分支作为静态文件部署所以我们最好新建一个分支命名无所谓用来存储地源代码分支则用来存储部署后的静态文件这时便成功建立了一个分支此后的工作都将在分支下进行你可以通过来查看当前有哪些分支使用分支名来切换到对应的分支学习笔记部署为了更方便的部署到提供了插件老规矩安装在中配置你此前新建的仓库的链接比如默认使用分支你可以自定义此次部署更新的说明保存部署第一次可能需要你输入用户名与密码密码输入的时候不会出现不要害怕已经输入进去了等待完成后打开网址你的名字就能看到你的线上网站了使用可能无法正常打开是多了安全加密的浏览器已经默认会显示链接为不安全为了安全建议开启强制跳转项目地址页面翻到下面此时网址会自动重定向到备份与自动部署我们当前只是将生成的静态文件部署到了云端为了以防万一我们应该将网站的源代码文件也推送到仓库备份与远程仓库建立连接只此一次即可你的用户名你的名字接下来准备提交这几句命令将是你以后每次备份所需要输入添加到缓存区这次做了什么更改简单描述下即可推送至远程仓库第一次提交你可能需设置一下默认提交分支每次推送都要输入这三条命令你可能觉得有些麻烦那么你可以编写脚本譬如在根目录下新建如果没有消息后缀默认提交信息为此后更新的话只需要在终端执行即可更新麻烦每次部署也很麻烦可以使用持续集成进行自动部署什么是持续集成持续集成是一种软件开发实践对软件进行自动化构建以此来发现错误就是一个线上持续集成服务的提供商它可以拉取你每次推送到上的代码然后根据你的要求对其进行构建我们可以趁机让它自动生成网站静态文件然后自动帮我们部署除此之外你还可以使用等服务相比等自身便拥有仓库的不再需要额外设置可以直接使用推荐一个专门用来部署的关于更多更具体的自动化部署方案和操作步骤你可以参考我的小伙伴的初探无后端静态博客自动化部署方案他在文章中详细介绍了和的部署方法你也可以参考的官方文档将部署到我就不在此画蛇添足当然还有个更简便的方法直接参考我的去掉夹在与之间的部分直接粘贴到你的文件夹自己新建下文件里即可推送后便可直接自动部署至此你的站点便基本搭建完成此后继续对主题进行自定义吧主题文档开始写作文章输入以下命令即可新建文件是的后缀名是一种简洁方便的文本标记语言你只需要记住简单的几种语法就可以快速进行编写为什么使用首先本身就是将转化为静态的文件来方便用户编写文章就好似介于与文本之间体积大大部分功能实际上根本用不到且最后的文档常常带有许多冗余信息而却无法实现加粗标题下划线水平分割线等常用的功能这里所说的只是一种纯文本格式的代称实际上也是纯文本文件不过通过语法和编译器我们就可以看到一些简单的样式譬如本文就是通过编写一级标题二级标题加粗文字更多语法虽然说是更多但是其实也没多少基本语法这是我写的一个样式上面是渲染过后的效果你可以与其的纯文本原文进行对比添加标签分类例如本文的头部教你如何从零开始搭建一个属于自己的网站教程分享云游的小安利你的文章内容页面你可以新建一些自己的自定义页面譬如直接在目录下的文件夹下直接新建进行编写也可以通过以下命令来新建页面当然还是不过也是可以在里写的也会被渲染出来说到这里就不得不提一提本主题的特色功能了生成你的老婆列表页面按一定格式书写即可见文档预览视频没有视频一是懒二是文字更利于更新勘误以及文章中将会频繁出现参考链接更方便使用如何绑定你的自定义域名首先你得有个自己的域名避免广告嫌疑你可以自行前往相关域名提供商购买但是如果你有幸能看到谷歌广告概率较小可以考虑点一点并使用解析到你的名字当然记录直接解析到地址也可以在工作目录下文件夹下新建文件没有后缀名即相当于告诉允许将为你的域名提供服务目录下的文件除了特殊的会被解析为其余都会原样复制到生成的静态文件夹中所以你需要在文件夹下建有它会在生成静态文件时将拷贝到静态文件夹并部署到分支如果只是在上设置项目地址页面它会自动添加到分支上但随后不包含的部署会将其覆盖内容填写你的域名即可备案如果想要使用国内的一些服务比如不备案确实寸步难行此处我指的是备案并非公安备案实际上我从来没有进行过公安备案且目前在使用服务时并未受到任何相关限制我只在腾讯云备案过所以只能分享一点此方面的经验国内备案往往意味着你还需要一台国内的服务器譬如通过腾讯云备案时会需要你设置关联的服务器阿里云应当也是如此实际上你的网站并不一定得在这台服务器上即便你只是免费试用了一个月但是备案成功了之后过期了对备案也不会有何影响也就是说你完全可以使用学生优惠元左右购买一个月的云服务器用于关联并在这个月内抓紧备案好此后云服务器过期不会影响备案问题学生优惠的话阿里云或者腾讯云都有现在已只能至少三个月起购备案前需要注意的几点就是确定你的域名是否可以备案一些少见独特的域名后缀国内是无法备案的比如关闭评论区提交备案时的备注说明不得含有交流字样首页不能含有其他网站的直达链接遵纪守法无不良信息这是当然的你也可以直接关停网站等待备案成功后再重新打开今后每年偶尔会复查但相对会宽松许多此后按照网站指引的备案步骤一步步来即可以前还要等待幕布寄送拍照现在可以直接在手机上人脸验证备案成功后页脚必须清晰地展示备案号且备案号含有指向的超链接更多可能有帮助的内容让百度收录你的博客云游君的小站使用加速你的网站云游君的小站其他平台毕竟自己的站点可能还是不会有什么人看所以发到其他平台了然而还是没有人不过在这里阅读体验应该是最好的教你如何从零开始搭建一个属于自己的网站云游君的文章知乎教你如何从零开始搭建一个属于自己的网站专栏不支持外链代码高亮太难了教你如何从零开始搭建一个属于自己的网站腾讯云该说不愧是腾讯吗绝了最晚晚了几个星期发的次日搜全名就变百度第一条了结语个人网站同样可以用来做许多事情你可以将其用来记录生活回忆创作学习笔记开发经验等包括作为一个试验平台可以与熟悉的人分享也可以作为另一个世界另一个自己的展示多年后回看起自己当初写下的内容未尝不是件有趣的事情善始者众善终者寡臣闻善作者不必善成善始者不必善终史记乐毅列传希望大家能有毅力坚持下去不忘初心永远相信美好的事情即将发生相关讨论与问题可前往反馈主题相关问题请到反馈',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-14 16:31:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" /><meta name="generator" content="Hexo 7.2.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">是三水呀( •̀ ω •́ )✧</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.05rem;">AI<sup>1</sup></a><a href="/tags/Blender/" style="font-size: 1.05rem;">Blender<sup>1</sup></a><a href="/tags/CSS/" style="font-size: 1.05rem;">CSS<sup>2</sup></a><a href="/tags/Canvas/" style="font-size: 1.05rem;">Canvas<sup>2</sup></a><a href="/tags/CoolQ/" style="font-size: 1.05rem;">CoolQ<sup>1</sup></a><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 1.05rem;">GitHub<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 1.05rem;">Hexo<sup>2</sup></a><a href="/tags/Linux/" style="font-size: 1.05rem;">Linux<sup>1</sup></a><a href="/tags/MAD/" style="font-size: 1.05rem;">MAD<sup>1</sup></a><a href="/tags/React/" style="font-size: 1.05rem;">React<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 1.05rem;">SEO<sup>1</sup></a><a href="/tags/Web/" style="font-size: 1.05rem;">Web<sup>2</sup></a><a href="/tags/%E4%B8%AD%E4%BC%A0/" style="font-size: 1.05rem;">中传<sup>11</sup></a><a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 1.05rem;">作品<sup>11</sup></a><a href="/tags/%E5%85%BB%E7%8C%AA/" style="font-size: 1.05rem;">养猪<sup>1</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">分享<sup>19</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>3</sup></a><a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 1.05rem;">动画<sup>6</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>14</sup></a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.05rem;">小说<sup>7</sup></a><a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1.05rem;">年终总结<sup>1</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 1.05rem;">日记<sup>12</sup></a><a href="/tags/%E6%97%B6%E5%85%89/" style="font-size: 1.05rem;">时光<sup>16</sup></a><a href="/tags/%E6%98%A5%E8%81%94/" style="font-size: 1.05rem;">春联<sup>1</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 1.05rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B2%99%E9%9B%95/" style="font-size: 1.05rem;">沙雕<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%8E%A9%E5%85%B7/" style="font-size: 1.05rem;">玩具<sup>1</sup></a><a href="/tags/%E7%95%AA%E5%A4%96/" style="font-size: 1.05rem;">番外<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 1.05rem;">目标检测<sup>1</sup></a><a href="/tags/%E7%9E%8E%E9%B8%A1%E5%84%BF%E7%94%BB/" style="font-size: 1.05rem;">瞎鸡儿画<sup>2</sup></a><a href="/tags/%E7%A4%BE%E5%9B%A2/" style="font-size: 1.05rem;">社团<sup>1</sup></a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.05rem;">科幻<sup>5</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">笔记<sup>22</sup></a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 1.05rem;">脚本<sup>1</sup></a><a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">论坛<sup>1</sup></a><a href="/tags/%E9%83%A8%E8%90%BD/" style="font-size: 1.05rem;">部落<sup>4</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.05rem;">项目<sup>3</sup></a><a href="/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" style="font-size: 1.05rem;">高斯模糊<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E5%AE%89%E5%88%A9/" itemprop="url">云游的小安利</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>分享</span></a><a class="article-meta__tags" href="/tags/Hexo/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Hexo</span></a><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>教程</span></a></span></div></div><h1 class="post-title" itemprop="name headline">教你如何从零开始搭建一个属于自己的网站</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2020-03-04T17:31:08.000Z" title="发表于 2020-03-05 01:31:08">2020-03-05</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2021-07-14T08:31:00.000Z" title="更新于 2021-07-14 16:31:00">2021-07-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="教你如何从零开始搭建一个属于自己的网站"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为杭州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>杭州</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/default_cover.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://rockivy.github.io/posts/how-to-build-your-site/"><header><a class="post-meta-categories" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E5%AE%89%E5%88%A9/" itemprop="url">云游的小安利</a><a href="/tags/%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url">分享</a><a href="/tags/Hexo/" tabindex="-1" itemprop="url">Hexo</a><a href="/tags/%E6%95%99%E7%A8%8B/" tabindex="-1" itemprop="url">教程</a><h1 id="CrawlerTitle" itemprop="name headline">教你如何从零开始搭建一个属于自己的网站</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Rockivy</span><time itemprop="dateCreated datePublished" datetime="2020-03-04T17:31:08.000Z" title="发表于 2020-03-05 01:31:08">2020-03-05</time><time itemprop="dateCreated datePublished" datetime="2021-07-14T08:31:00.000Z" title="更新于 2021-07-14 16:31:00">2021-07-14</time></header><blockquote>
+<p>写给想要拥有一个自己的网站但没有资金成本的小白与曾经的自己。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>虽说是网站，对于个人来说，或许一般叫作博客。<br>但我不希望它仅仅是一个博客，而是能够成为一个处于自己现实生活之外、自由、实验、不用畏惧他人眼光甚至可以独断专行的地方。</p>
+<span id="more"></span>
+
+<p>当然，这本质还是一个新手向教程，也许会有点科普的感觉。<br>我会从整体上对搭建网站的流程和使用到的技术及步骤进行介绍（因为要铺开讲，倘若包括轶事，实在太多太杂，我也会点到为止），并让你明白这个东西在网站的过程中起到什么样的作用。<br>但我不会就细枝末节展开叙述，譬如如何注册账号、安装时如何点击下一步。<br>我希望看完此篇文章后，此前对此方面知识一无所知的小白，到最后也能搭建出一个属于自己的站点。（前提是认识基础的英语单词和善用搜索引擎）</p>
+<p>已经有所基础的同学大可跳读或者直接关闭。</p>
+<blockquote>
+<p>注释处多为相关补充说明，对正常流程没有影响，若没有兴趣，可以略过。</p>
+</blockquote>
+<p>与文章相关疑问都可在本文章的 GitHub Issues 中进行评论，其他疑问可到对应项目或文章下评论。</p>
+<p>我会尽可能保持更新该文章所使用到的技术和做法，并随时接受勘误。</p>
+<h3 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h3><ul>
+<li>Hexo</li>
+<li>静态博客</li>
+<li>无服务器</li>
+<li>GitHub Pages</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun">hexo-theme-yun</a>（私货）</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><blockquote>
+<p><strong>什么是 Node.js ？</strong><br>这得从什么是 JS 说起，JS 也就是 JavaScript。（为什么有种从盘古开天辟地开始的感觉）没错，JavaScript 就是网页的盘古。JavaScript 是一种编程语言，我们所见到的网页中的交互和逻辑处理几乎都是由 JavaScript 完成。<br>JavaScript 语法简单，易学易用。（当然也请不要小瞧它，虽然它入门门槛低，但上限同样也很高。包括但不限于实现网站前后端，手机桌面应用程序，机器学习，计算机图形学等。）<br>在 Node.js 诞生前，JavaScript 都运行于浏览器端。也就是说，它是鱼，浏览器是装满了水的水缸。<br>2008 年，Chrome V8 诞生。2009 年，Node.js 诞生。并成为 GitHub 早期最著名的开源项目。GitHub 可能大家已有所了解，后续再说。<br>Node.js 便是一个基于 Chrome V8 引擎的 JavaScript 运行环境。（当年第一次看到这句话时，我也一脸懵逼。）按照我的理解，JavaScript 是鱼，Chrome V8 就是抽水机，Node.js 则把这台抽水机也装在你电脑上。于是你的电脑也有了 Node.js 这个和浏览器相似的水缸，也可以在里面运行 JavaScript 了！<br>当然 Node.js 和浏览器端还是因为自身定位和一些历史原因而有些许区别的，不再展开。<br><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/node.js/7567977">Node.js | 百度百科</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">JavaScript | MDN</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">下载｜ Node.js</a></p>
+<p>建议下载<strong>长期支持版</strong>而非<strong>当前发布版</strong>（因为如果是最新版，容易出现一些奇妙的 bug）。</p>
+<p>全部默认下一步进行安装。</p>
+<p>Windows 打开命令提示符，macOS 打开终端。（&#x3D; &#x3D;，这个不会就请百度吧。）<br>Linux 用户右上角关闭本标签页。</p>
+<p>后续如提到输入命令，均默认指打开终端进行输入。</p>
+<p>输入 <code>node --version</code>，如果得到的版本号与你方才安装的一致，那么 Node.js 就已经成功安装。</p>
+<blockquote>
+<p>Node.js 安装成功时也默认安装了 <code>npm</code>，在此后将会用到。<br><code>npm</code> 是随 Node.js 一起被安装的包管理工具，你可以理解成 Node.js 自带的应用商店。</p>
+</blockquote>
+<p>对了，国内使用 npm 可能很慢。</p>
+<p><strong>你可以考虑切换为 <code>taobao</code> 镜像源。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/yunyoujun/notes/npm-and-yarn#nrm">npm &amp; yarn 常用包与命令</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.yarnpkg.com/zh-Hans/">yarn</a> 是 Facebook 出品的另一个包管理工具，同样可以管理 npm 中的包，安装已缓存的包时速度更快，你也可以使用它来替代 npm。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://classic.yarnpkg.com/zh-Hans/docs/install#mac-stable">官网</a>下载或通过命令行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
+
+<h3 id="Git-与-GitHub"><a href="#Git-与-GitHub" class="headerlink" title="Git 与 GitHub"></a>Git 与 GitHub</h3><h4 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h4><blockquote>
+<p>Visual Studio Code，简称 VS Code。<br>目前最为强大易用的编辑器，轻量且快速。（<del>宇宙第一编辑器</del>）<br>注意：它并不是我们常常听到的 VS，VS 常常指的是 Visual Studio，是一个功能强大的 IDE（集成开发环境），体积也相比 VS Code 都要大上一个量级。</p>
+</blockquote>
+<p>在此之前，我建议你先安装 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>。因为安装 Git Bash 时，可以设置 VS Code 作为默认编辑器。</p>
+<blockquote>
+<p>Git 是一个开源的分布式版本控制系统，由 Linus Torvalds（同时也是 Linux 的作者）为了管理 Linux 开发而开发。<br>简而言之，是一个版本管理工具。譬如设计师设计好了第三版的海报，客户却说还是要第一版吧，这时便可以通过 Git 快速回退到最初的版本。<br>你只需要把每次更改的状态（Git 会自动进行检测，你只要掌握基础的几条命令就可以了）告诉 Git，而不需要每个版本都保存一份压缩包，既方便也能大大节约空间。<br>（当然这主要只对代码文本起作用，因为 Git 的本质是记录各行代码的增减，倘若是像视频、海报这类二进制文件来说便体现不出丝毫优势了。当然想要应对这种场景还有 <a target="_blank" rel="noopener" href="https://git-lfs.github.com/">Git LFS</a>。）</p>
+</blockquote>
+<p>下载 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 并安装（如果国内速度太慢，可以试试<a target="_blank" rel="noopener" href="https://pc.qq.com/detail/13/detail_22693.html">这里</a>）</p>
+<p>macOS 用户可以下载官网的安装包进行安装，也可以直接安装 App Store 的 Xcode（附带会安装 Git，但是比较大）。</p>
+<blockquote>
+<p>类似的工具还有：SVN。但始终更推荐 Git，因为它功能更为强大且它的背后还有更强大的生态：GitHub。</p>
+</blockquote>
+<h4 id="注册-GitHub"><a href="#注册-GitHub" class="headerlink" title="注册 GitHub"></a>注册 GitHub</h4><p>这一部分内容，你也可以放到本地调试并预览成功后并打算线上部署的时候，再回过头来看。</p>
+<blockquote>
+<p>GitHub 一听便与 Git 有所渊源。<code>Git</code> 在英文中是懒人、饭桶之意。<code>Hub</code> 则是中心、集线器的意思。譬如 USB 集线器就是 USB Hub。所以 GitHub 就是饭桶中心（<del>大雾</del>）。<br>GitHub 是全世界最大的开源项目与代码托管平台，也是众多开发者的交流场所。<del>还是全球最大的同性交友网站</del>。<br>而代码托管本身用到的正是上文提到的 Git 技术。</p>
+</blockquote>
+<p>注册 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 账号。（虽然都是英文，但不必畏惧，也并不会造成使用障碍，只要记得最常用的选项含义即可，以及善用手头的翻译软件。）</p>
+<blockquote>
+<p>注意：注册时的英文用户名将成为你可以使用的免费域名前缀。</p>
+</blockquote>
+<p>登录 GitHub。</p>
+<blockquote>
+<p>为什么要用 GitHub？<br>对于平民玩家来说，在初次尝试建立自己的网站时，也许并不会有闲钱或者说决心来购买自己的服务器与域名。<br>而 GitHub 则提供了 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a> 这一服务。<br>用户们可以利用这一服务，部署自己的静态站点。</p>
+</blockquote>
+<p>点击右上角的 <code>+</code> -&gt; <code>New repository</code> 新建仓库。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://i.loli.net/2020/03/05/pDZtlgQsLTb9k13.png" alt="QQ20200305-221806@2x.png"></p>
+<blockquote>
+<p>我这里因为已经有同名仓库，所以提示了重复。</p>
+</blockquote>
+<p>仓库名称务必为 <code>你的用户名.github.io</code>，用户名是英文，大小写无所谓，但建议统一小写。（因为你会发现时常切换大小写很麻烦）</p>
+<blockquote>
+<p>为什么必须这个作为仓库名？<br>GitHub Pages 服务的命名规范，同时它也将成为你的专属域名。当然，你也可以购置自己的专属域名并用它来提供内容。</p>
+</blockquote>
+<p>点击 <code>Create repository</code>。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></p>
+<ul>
+<li>GitHub: <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">https://github.com/hexojs/hexo</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">官方文档</a>（直接参考文档也是一个不错的选择）</li>
+</ul>
+<blockquote>
+<p><strong>为嘛使用 Hexo ？</strong><br>Hexo 是一个快速、简洁而强大的博客框架，基于 Node.js，同样托管于 GitHub 之上。生态中拥有众多插件主题。你可以基于它快速生成一些静态页面。<br>你可以使用别人的各种主题与插件，也可以自己定制开发想要的功能。<br><strong>为什么不是…?</strong><br>其他常用的博客框架还有 <a target="_blank" rel="noopener" href="https://wordpress.org/">WordPress</a>，<a target="_blank" rel="noopener" href="https://typecho.org/">Typecho</a>，<a target="_blank" rel="noopener" href="https://ghost.org/">Ghost</a> 等，但这些往往都需要购置自己的服务器，而无法静态化地部署到 GitHub Pages 上。（当然，相应的功能和灵活性也大大提升。）静态化站点还有一个优势就是访问速度往往更快。<br>静态网站生成器还有 <a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/">Vuepress</a>，<a target="_blank" rel="noopener" href="https://www.gatsbyjs.org/">Gatsby</a> 等。但这些多是为了写文档而量身定制的，你也可以使用它们，但是相较 Hexo 的博客定位，它们关于博客的插件和主题以及解决办法会少得多。<br>Hexo 提供的功能与 <a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a> 几乎都有，（生成大量文件时，甚至比 Hexo 更快）不过它是基于 GO 语言。日后你想对自己的网站进行自定义，即便是 Hugo，你编写前端的交互仍旧需要使用 JavaScript，所以选择基于 JavaScript 的 Hexo 可以降低学习成本。（你若对 GO 有兴趣，仍然可以尝试使用 Hugo，但本教程将不会针对 Hugo 进行展开。）<br>所以对于新手来说，使用 Hexo 作为起始点，不失为一个好选择。（当然如果你有钱租服务器，并希望快速上手的话，就可以考虑考虑 WordPress 或者 Typecho）<br>这里顺带推荐一下小伙伴 <a target="_blank" rel="noopener" href="https://asuhe.jp/">染川瞳</a> 的 WordPress 主题 <a target="_blank" rel="noopener" href="https://github.com/mirai-mamori/Sakurairo">Sakurairo</a>，<a target="_blank" rel="noopener" href="https://guhub.cn/">阔落</a> 的 Typecho 主题 <a target="_blank" rel="noopener" href="https://github.com/BigCoke233/miracles">miracles</a>，都是很漂亮的主题。</p>
+</blockquote>
+<p>在终端中输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="comment"># 如果安装失败，可能是没有权限，可以尝试头部加上 sudo 重新执行</span></span><br><span class="line"><span class="comment"># sudo npm install hexo-cli -g</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>install</code> 自然是安装。<br><code>hexo-cli</code> 则是 <code>hexo</code> 的终端工具，可以帮助你生成一些模版文件，之后再用到。<br><code>-g</code> 代表的是全局安装。也就是在任何地方都可以使用，否则会只能在安装的目录下使用。</p>
+</blockquote>
+<p>此时，请先通过 <code>cd</code> 进入你本地电脑打算存储网站代码的文件夹目录。（或者右键文件夹 Git Bash Here）</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/cd/3516393">cd | DOS 命令</a><br><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/cd/3516411">cd （LINUXSHELL 命令）</a></p>
+</blockquote>
+<p>譬如：</p>
+<blockquote>
+<p>注意：这里是你自定义的目录，请不要复制粘贴</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#x27;#&#x27; 字符后的文字代表注释，不需要输入</span></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line"><span class="built_in">cd</span> C:\Users\YunYou\Documents\GitHub\</span><br><span class="line"><span class="comment"># macOS</span></span><br><span class="line"><span class="comment"># cd /Users/yunyou/github/</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的名字.github.io</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>hexo</code> 正是因为我们之前安装了 <code>hexo-cli</code> 这一个包，所以我们可以在终端中使用 <code>hexo</code> 这一命令。<br><code>init</code> 初始化博客的模版文件。后面跟的是你要新建的文件夹，最好和你此前新建的仓库名一致。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入你的博客文件夹</span></span><br><span class="line"><span class="built_in">cd</span> 你的名字.github.io</span><br><span class="line"><span class="comment"># 默认安装所有 `package.json` 文件中提到的包</span></span><br><span class="line">npm install</span><br><span class="line"><span class="comment"># 你也可以缩写成 hexo s</span></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p><code>server</code> 代表开启本地的 Hexo 服务器，这时你就可以打开浏览器，在地址栏中输入 <code>localhost:4000</code> 就可以看到本地的网页了。</p>
+<p>按 <code>Ctrl + C</code> 中断服务器的运行。</p>
+<p>至此，基础的模版页面便已经搭建好了。</p>
+<h4 id="使用-Hexo-主题"><a href="#使用-Hexo-主题" class="headerlink" title="使用 Hexo 主题"></a>使用 Hexo 主题</h4><p>Hexo 默认提供的是 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-theme-landscape">hexo-theme-landscape</a> 主题。<br>默认主题样式简单，功能较少。所以大多数人并不会使用默认主题。</p>
+<p>这里将示范如何使用我自己开发的主题 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun">hexo-theme-yun</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img.shields.io/github/stars/YunYouJun/hexo-theme-yun?style=social" alt="GitHub stars"></a></p>
+<blockquote>
+<p>_(:з」∠)_ 顺带求 Star，代表收藏，就在点进链接后的右上角。</p>
+</blockquote>
+<p>你可以前往 <a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/">云游君的小站</a> 查看示例效果。</p>
+<p>Hexo-Theme-Yun 的速度检测</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://i.loli.net/2020/03/12/cUIuDPJfo379ZOk.png" alt="pagespeed-insights-score.png"><em>谷歌 <a target="_blank" rel="noopener" href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></em></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://i.loli.net/2020/03/08/DhfLu5yngb7NZE2.png" alt="Audits - Lighthouse"><em>谷歌浏览器 Audits - Lighthouse 检测分数</em></p>
+<p>当然，你也可以在 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a> 发现更多有趣美丽的主题。使用方法大致相同。<br>当你具备一定开发能力时，你可以开发属于自己的主题，或者为 hexo-theme-yun 提交 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun/pulls">PR</a> 添加你想要的功能。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun">hexo-theme-yun - GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/">hexo-theme-yun 使用文档</a>：更详细的配置进阶指南。</li>
+<li><a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/">示例效果</a></li>
+</ul>
+<h5 id="下载-Hexo-主题"><a href="#下载-Hexo-主题" class="headerlink" title="下载 Hexo 主题"></a>下载 Hexo 主题</h5><p>进入终端（确保路径处于你此前使用 Hexo 初始化好的文件夹目录下，即 <code>xxx.github.io</code>，后简称为 <code>Hexo 目录</code>），输入以下命令。</p>
+<blockquote>
+<p>实际上你也可以直接在 VS Code 中使用终端。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-theme-yun</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>旧版本方案（不推荐）</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/YunYouJun/hexo-theme-yun themes/yun</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里便使用到了我们此前安装的 Git，<code>git clone</code> 即代表克隆（也就是复制的作用）我的主题（托管于 GitHub，链接便是主题所在的地址），<code>themes/yun</code> 则代表放在你 Hexo 文件夹下的 <code>themes/yun</code> 文件夹里（没有该文件夹会自动新建）。</p>
+</blockquote>
+</details>
+
+<h5 id="编辑-Hexo-配置"><a href="#编辑-Hexo-配置" class="headerlink" title="编辑 Hexo 配置"></a>编辑 Hexo 配置</h5><blockquote>
+<p>右键文件夹使用 VS Code 打开，或者进入 VS Code 打开你存储网站的文件夹。此后操作都将默认你已处于该工作目录下。</p>
+</blockquote>
+<p>在你此前通过 Hexo 初始化生成的文件目录下，会存在一个 <code>_config.yml</code> 文件。</p>
+<blockquote>
+<p><code>yml</code> 是 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/YAML/1067697">YAML</a> 文件的后缀名，YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言） 的缩写，但它实际上还是一种标记语言。你可以将其理解为存储数据的一种文本格式，这也是其诞生的目的。 如果你听说过 JSON，那你就更能明白它是干什么的了。</p>
+</blockquote>
+<p>它是 Hexo 的配置文件，关于各配置选项的意义你可以查看 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">配置 | Hexo</a>。</p>
+<p>在 <code>_config.yml</code> 中找到 <code>theme</code> 这个字段，将其后的 <code>landscape</code> 修改为 <code>yun</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">yun</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>pug 是一种模板引擎，可以渲染为 HTML 字符串。类似的还有 ejs，swig 等，语法和设计理念有所不同。<br>stylus 是一种 CSS 预处理器，可以渲染为 CSS。类似的还有 scss，less，同样只是语法和设计理念有所差异。</p>
+</blockquote>
+<p>由于我的主题使用了 pug 和 stylus，而 Hexo 自带的一般是 ejs 与 stylus，所以你可能还需要输入以下命令安装渲染器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-render-pug hexo-renderer-stylus</span><br><span class="line"><span class="comment"># 如果出问题，可以换 yarn 安装试试。</span></span><br></pre></td></tr></table></figure>
+
+<p>这时再像此前那般使用 <code>hexo server</code> 重新启动服务器，你就可以看到一个不一样的主题风格的页面了。</p>
+<h5 id="自定义主题配置"><a href="#自定义主题配置" class="headerlink" title="自定义主题配置"></a>自定义主题配置</h5><p>当启动时，会使用主题的默认配置。但这不一定是你想要的。<br>所以你可以对主题进行一些自定义。</p>
+<p>主题的配置文件放在 <code>themes/yun/_config.yml</code> 文件中。<br>且慢，你<strong>最好不要直接修改主题的默认配置</strong>。倘若日后主题升级更新了怎么办，难道还要重新配置一遍吗？</p>
+<p>最好的解决方案就是在博客根目录下（不是主题目录）新建 <code>_config.yun.yml</code>。</p>
+<div class="warning">
+
+<blockquote>
+<p><code>source/_data/yun.yml</code> 自 v1.8.0 废弃。<br><a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration">Configuration | Hexo</a></p>
+</blockquote>
+</div>
+
+<p>本主题将自定义配置与默认配置进行合并，因此你只需要在 <code>_config.yun.yml</code> 文件中自定义你需要的配置即可，其余仍将自动采用默认配置。</p>
+<p>譬如我们需要更换头像。在 <code>_config.yun.yml</code> 中填写。</p>
+<blockquote>
+<p>你可以在 <code>source</code> 文件夹下新建 <code>images</code> 文件夹，用来存储你的图片。<br>也可以使用 <a target="_blank" rel="noopener" href="https://sm.ms/">SM.MS</a> 等图床工具配合 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a> 上传你的图片文件，获取在线链接。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/images/avatar.jpg</span> <span class="comment"># 你的头像图片地址</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">opacity:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>更换主题色彩，比如换成黑色，黑色的十六进制颜色代码是 <code>#000000</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">colors:</span></span><br><span class="line">  <span class="attr">primary:</span> <span class="string">&#x27;#000000&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这时你的主题色调就会变为黑色。</p>
+<p>这只是一个配置项的简单示例，更多配置你可以参考 <a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/">Yun 主题文档</a> 或直接在 <code>theme/yun/_config.yml</code> 中查看，并根据自己的需要进行配置。</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p>至今我们的工作都是在本地进行，想必你也很想放到线上与小伙伴们分享。<br>这便轮到了 GitHub Pages 的出场，不过 GitHub Pages 只支持纯静态文件。</p>
+<p>所以我们需要使用以下命令先来生成站点的静态文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果进行多次生成，为了避免受错误缓存影响，最好使用 hexo clean 先清除一遍。</span></span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment"># 缩写为 hexo g</span></span><br></pre></td></tr></table></figure>
+
+<p>此时你的文件夹目录下会出现 <code>public</code> 这个文件夹，里面存放的就是你站点的静态文件。</p>
+<h3 id="与远程仓库建立关联"><a href="#与远程仓库建立关联" class="headerlink" title="与远程仓库建立关联"></a>与远程仓库建立关联</h3><p>接下来我们将本地的仓库与此前在 GitHub 上建立的仓库建立关联。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment"># 初始化 Git 仓库，只需要执行一次即可</span></span><br></pre></td></tr></table></figure>
+
+<p>在将其部署到 GitHub Pages 上之前，我们最好先建立一个分支。</p>
+<blockquote>
+<p>什么是分支？<br>Git 提供了版本管理功能，其中还有一个分支功能，你现在可以简单地将其理解为平行世界。</p>
+</blockquote>
+<p><code>你的名字.github.io</code> 部署后，GitHub Pages 将默认使用你的 master 分支作为静态文件部署。<br>所以我们最好新建一个 hexo 分支（命名无所谓）用来存储 Hexo 地源代码，master 分支则用来存储部署后的静态文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b hexo</span><br></pre></td></tr></table></figure>
+
+<p>这时便成功建立了一个 hexo 分支。（此后的工作都将在 hexo 分支下进行）</p>
+<p>你可以通过 <code>git branch -v</code> 来查看当前有哪些分支，使用 <code>git checkout 分支名</code> 来切换到对应的分支。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/posts/git-learn-note/">Git 学习笔记</a></p>
+</blockquote>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>为了更方便的部署到 GitHub Pages，Hexo 提供了 <code>hexo-deployer-git</code> 插件。</p>
+<p>老规矩，安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>_config.yml</code> 中配置。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">你此前新建的仓库的链接</span> <span class="comment"># 比如：https://github.com/YunYouJun/yunyoujun.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span> <span class="comment"># 默认使用 master 分支</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">Update</span> <span class="string">Hexo</span> <span class="string">Static</span> <span class="string">Content</span> <span class="comment"># 你可以自定义此次部署更新的说明</span></span><br></pre></td></tr></table></figure>
+
+<p>保存，部署！</p>
+<blockquote>
+<p>第一次可能需要你输入用户名与密码。<br>密码输入的时候不会出现 ***，不要害怕，已经输入进去了。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>等待完成后，打开网址 <code>https://你的名字.github.io</code> 就能看到你的线上网站了。</p>
+<blockquote>
+<p>使用 https，http 可能无法正常打开。HTTPS 是多了安全加密的 HTTP，Chrome 浏览器已经默认会显示 <code>http</code> 链接为不安全。<br>为了安全，建议开启强制 https 跳转。<code>项目地址页面 -&gt; Settings -&gt; Options -&gt; GitHub Pages -&gt; Enforce HTTPS</code>。（翻到下面）<br>此时，http 网址会自动重定向到 https</p>
+</blockquote>
+<h3 id="备份与自动部署"><a href="#备份与自动部署" class="headerlink" title="备份与自动部署"></a>备份与自动部署</h3><p>我们当前只是将生成的静态文件部署到了云端。</p>
+<p>为了以防万一，我们应该将网站的源代码文件也推送到 GitHub 仓库备份。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与远程 Git 仓库建立连接，只此一次即可</span></span><br><span class="line">git remote add origin https://github.com/你的用户名/你的名字.github.io</span><br></pre></td></tr></table></figure>
+
+<p>接下来准备提交，这几句命令将是你以后每次备份所需要输入。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加到缓存区</span></span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;这次做了什么更改，简单描述下即可&quot;</span></span><br><span class="line"><span class="comment"># 推送至远程仓库</span></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 第一次提交，你可能需设置一下默认提交分支</span></span><br><span class="line"><span class="comment"># git push --set-upstream origin hexo</span></span><br></pre></td></tr></table></figure>
+
+<p>每次推送都要输入这三条命令，你可能觉得有些麻烦。<br>那么你可以编写 bash 脚本。</p>
+<p>譬如，在根目录下新建 <code>update.sh</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有消息后缀，默认提交信息为 `:pencil: update content`</span></span><br><span class="line">info=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">if</span> [<span class="string">&quot;<span class="variable">$info</span>&quot;</span> = <span class="string">&quot;&quot;</span>];</span><br><span class="line"><span class="keyword">then</span> info=<span class="string">&quot;:pencil: update content&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;<span class="variable">$info</span>&quot;</span></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+
+<p>此后更新的话，只需要在终端执行 <code>sh update.sh</code> 即可。</p>
+<p>更新麻烦，每次部署也很麻烦，可以使用持续集成进行自动部署。</p>
+<blockquote>
+<p>什么是持续集成？<br>持续集成是一种软件开发实践。对软件进行自动化构建，以此来发现错误。<br>Travis CI 就是一个线上持续集成服务的提供商。它可以拉取你每次推送到 GitHub 上的代码，然后根据你的要求对其进行构建。<br>我们可以趁机让它自动生成网站静态文件，然后自动帮我们部署。<br>除此之外，你还可以使用 <a target="_blank" rel="noopener" href="https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions">GitHub Actions</a> ，<a target="_blank" rel="noopener" href="https://www.netlify.com/">Netlify</a> 等服务。<br>GitHub Actions 相比 Travis 等，自身便拥有仓库的 Token，不再需要额外设置，可以直接使用 <code>secrets.GITHUB_TOKEN</code>。<br>推荐一个专门用来部署 gh-pages 的 Actions <a target="_blank" rel="noopener" href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a></p>
+</blockquote>
+<p>关于更多更具体的自动化部署方案和操作步骤，你可以参考我的小伙伴 ChrAlpha 的 <a target="_blank" rel="noopener" href="https://blog.ichr.me/post/automated-deployment-of-serverless-static-blog/">初探无后端静态博客自动化部署方案</a>。</p>
+<p>他在文章中详细介绍了 Netlify 、GitHub Actions 和 Travis CI 的部署方法。</p>
+<p>你也可以参考 Hexo 的官方文档 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">将 Hexo 部署到 GitHub Pages</a></p>
+<p>我就不在此画蛇添足。</p>
+<hr>
+<p>当然还有个更简便的方法，直接参考我的 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/blob/hexo/.github/workflows/gh-pages.yml">gh-pages.yml</a>。</p>
+<p>去掉夹在 <code>yarn install</code> 与 <code>yarn build</code> 之间的 <code>algolia</code> 部分，直接粘贴到你的 <code>.github/workflows/</code> 文件夹（自己新建）下 <code>xxx.yml</code> 文件里即可。</p>
+<p>推送后便可直接自动部署。</p>
+<p>至此，你的站点便基本搭建完成，此后继续对主题进行自定义吧。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/">Yun 主题文档</a></p>
+</blockquote>
+<h3 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h3><h4 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h4><p>输入以下命令即可新建 <code>xxx.md</code> 文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post xxx</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>md</code> 是 <code>Markdown</code> 的后缀名，是一种简洁方便的文本标记语言。你只需要记住简单的几种语法，就可以快速进行编写。<br>为什么使用 Markdown？<br>首先 Hexo 本身就是将 Markdown 转化为静态的 Html 文件，来方便用户编写文章。<br>Markdown 就好似介于 Word 与 TXT 文本之间。Word 体积大、大部分功能实际上根本用不到，且最后的文档常常带有许多冗余信息。<br>而 TXT 却无法实现加粗、标题、下划线、水平分割线等常用的功能。<br>（这里所说的 TXT 只是一种纯文本格式的代称，实际上 Markdown 也是纯文本文件，不过通过语法和 Markdown 编译器，我们就可以看到一些简单的样式。）</p>
+</blockquote>
+<p>譬如本文就是通过 Markdown 编写。</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**加粗文字**</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更多语法（虽然说是更多，但是其实也没多少）：<a target="_blank" rel="noopener" href="https://github.com/younghz/Markdown">Markdown 基本语法</a></p>
+</blockquote>
+<p>这是我写的一个 Markdown 样式：<a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/star-markdown-css/">star-markdown-css</a></p>
+<p>上面是渲染过后的效果，你可以与其 Markdown 的<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/YunYouJun/star-markdown-css/master/demo/md/demo.md">纯文本原文</a>进行对比。</p>
+<h5 id="添加标签-分类"><a href="#添加标签-分类" class="headerlink" title="添加标签&#x2F;分类"></a>添加标签&#x2F;分类</h5><p>例如本文 Markdown 的头部。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter.html">Front-matter</a></p>
+</blockquote>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 教你如何从零开始搭建一个属于自己的网站</span><br><span class="line">date: 2020-03-05 01:31:08</span><br><span class="line">updated: 2020-07-14 16:31:00</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  -</span> 教程</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> 分享</span><br><span class="line">categories:</span><br><span class="line"><span class="section">  - 云游的小安利</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">你的文章内容</span><br></pre></td></tr></table></figure>
+
+<h4 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h4><p>你可以新建一些自己的自定义页面。</p>
+<p>譬如直接在 Hexo 目录下的 <code>source</code> 文件夹下直接新建 HTML 进行编写。</p>
+<p>也可以通过以下命令来新建页面。（当然还是 Markdown，不过也是可以在 Markdown 里写 HTML 的，也会被渲染出来。）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page xxx</span><br></pre></td></tr></table></figure>
+
+<p>说到这里，就不得不提一提本主题的特色功能了。</p>
+<p>生成你的老婆列表页面。按一定格式书写即可。见<a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/guide/page.html#girls">文档</a>。</p>
+<blockquote>
+<p>预览：<a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/girls/">Lovely Girls</a></p>
+</blockquote>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="视频？"><a href="#视频？" class="headerlink" title="视频？"></a>视频？</h3><p>没有视频，一是懒，二是文字更利于更新勘误。</p>
+<p>以及文章中将会频繁出现参考链接，更方便使用。</p>
+<h3 id="如何绑定你的自定义域名？"><a href="#如何绑定你的自定义域名？" class="headerlink" title="如何绑定你的自定义域名？"></a>如何绑定你的自定义域名？</h3><p>首先，你得有个自己的域名。</p>
+<blockquote>
+<p>避免广告嫌疑，你可以自行前往相关域名提供商购买。<br><del>但是如果你有幸能看到谷歌广告（概率较小），可以考虑点一点。</del></p>
+</blockquote>
+<!-- > 原本我的确是这么写的。
+> 不过咱的确一直嫖的是[腾讯云](https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=598123cb511ac35c74d38b5a49392812&from=console)，而它又有一个[推广链接](https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=598123cb511ac35c74d38b5a49392812&from=console)。
+> 而你通过我这个[链接](https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=598123cb511ac35c74d38b5a49392812&from=console)访问腾讯云注册购买产品，也不会多花钱。所以就不妨[点一下](https://cloud.tencent.com/act/cps/redirect?redirect=1040&cps_key=598123cb511ac35c74d38b5a49392812&from=console)？
+> 「你看，很简单吧，谁都不会受伤的世界完成了。」——比企谷八幡 -->
+
+<p>并使用 CNAME 解析到 <code>你的名字.github.io</code>。（当然 A 记录直接解析到 GitHub Pages IP 地址也可以。）</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">Managing a custom domain for your GitHub Pages site</a></p>
+</blockquote>
+<p>在 <code>Hexo</code> 工作目录下 <code>source</code> 文件夹下新建 <code>CNAME</code> 文件（没有后缀名）。</p>
+<blockquote>
+<p>CNAME 即相当于告诉 GitHub 允许将 xxx.github.io 为你的域名提供服务。<br>source 目录下的文件除了特殊的 markdown 会被解析为 html，其余都会原样复制到生成的静态文件夹中。<br>所以你需要在 source 文件夹下建有 CNAME，它会在生成静态文件时，将 CNAME 拷贝到静态文件夹并部署到 master 分支。<br>如果只是在 GitHub 上设置（<code>项目地址页面 -&gt; Settings -&gt; Options -&gt; GitHub Pages -&gt; Custom domain</code>），它会自动添加到 master 分支上，但随后不包含 CNAME 的部署会将其覆盖。</p>
+</blockquote>
+<p>内容填写你的域名即可。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.github.com/en/github/working-with-github-pages/about-custom-domains-and-github-pages">About custom domains and GitHub Pages</a></p>
+</blockquote>
+<h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><p>如果想要使用国内的一些服务，比如 CDN，不备案确实寸步难行。</p>
+<p>此处我指的是 ICP 备案，并非公安备案。（实际上我从来没有进行过公安备案，且目前在使用服务时，并未受到任何相关限制。）</p>
+<blockquote>
+<p>我只在腾讯云备案过，所以只能分享一点此方面的经验。</p>
+</blockquote>
+<p>国内备案往往意味着你还需要一台国内的服务器，譬如通过腾讯云备案时会需要你设置关联的服务器（阿里云应当也是如此）。<br>实际上你的网站并不一定得在这台服务器上，即便你只是免费试用了一个月，但是备案成功了，之后过期了对备案也不会有何影响。</p>
+<blockquote>
+<p>也就是说你完全可以使用学生优惠（10 元左右）购买一个月的云服务器，用于关联，并在这个月内抓紧备案好，此后云服务器过期不会影响备案问题。<br>学生优惠的话 <a target="_blank" rel="noopener" href="https://www.aliyun.com/minisite/goods?userCode=ixykjqj2">阿里云</a> 或者 <a target="_blank" rel="noopener" href="https://url.cn/PLQYbz6n">腾讯云</a> 都有。</p>
+</blockquote>
+<div class="warning">
+
+<blockquote>
+<p>现在已只能至少三个月起购。</p>
+</blockquote>
+</div>
+
+<p>备案前需要注意的几点就是：</p>
+<ul>
+<li>确定你的域名是否可以备案（一些少见&#x2F;独特的域名后缀，国内是无法备案的，比如 <code>moe</code>）</li>
+<li>关闭评论区</li>
+<li>提交备案时的备注说明不得含有 <code>交流</code> 字样</li>
+<li>首页不能含有其他网站的直达链接</li>
+<li>遵纪守法无不良信息（这是当然的）</li>
+</ul>
+<p>你也可以直接关停网站，等待备案成功后再重新打开。（今后每年偶尔会复查，但相对会宽松许多。）</p>
+<p>此后，按照网站指引的备案步骤一步步来即可。（以前还要等待幕布寄送拍照，现在可以直接在手机上人脸验证）</p>
+<p>备案成功后页脚必须清晰地展示备案号，且备案号含有指向 <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn/">http://www.beian.miit.gov.cn/</a> 的超链接。</p>
+<h3 id="更多可能有帮助的内容"><a href="#更多可能有帮助的内容" class="headerlink" title="更多可能有帮助的内容"></a>更多可能有帮助的内容</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/posts/baidu-seo-about-github-pages/">让百度收录你的 GitHub Pages 博客 - 云游君的小站</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/posts/use-cdn-speed-up-site/">使用 CDN 加速你的 GitHub Pages 网站 - 云游君的小站</a></li>
+</ul>
+<h3 id="其他平台"><a href="#其他平台" class="headerlink" title="其他平台"></a>其他平台</h3><p>毕竟自己的站点可能还是不会有什么人看，所以发到其他平台了（然而还是没有人）。不过在<a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/posts/how-to-build-your-site/">这里</a>阅读体验应该是最好的。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113209647">教你如何从零开始搭建一个属于自己的网站 - 云游君的文章 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv5108842">教你如何从零开始搭建一个属于自己的网站 - bilibili 专栏</a>（不支持外链、代码高亮、Markdown，太难了）</li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1609701">教你如何从零开始搭建一个属于自己的网站 - 腾讯云</a>（该说不愧是腾讯吗？SEO 绝了。最晚（晚了几个星期）发的，次日搜全名就变百度第一条了。）</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>个人网站同样可以用来做许多事情，你可以将其用来记录生活、回忆、创作、学习笔记、开发经验等（包括作为一个试验平台）。<br>可以与熟悉的人分享，也可以作为另一个世界另一个自己的展示。</p>
+<p>多年后，回看起自己当初写下的内容，未尝不是件有趣的事情。</p>
+<p>善始者众，善终者寡。</p>
+<blockquote>
+<p>臣闻善作者，不必善成；善始者，不必善终。「史记·乐毅列传」</p>
+</blockquote>
+<p>希望大家能有毅力坚持下去，不忘初心。</p>
+<blockquote>
+<p>永远相信美好的事情即将发生</p>
+</blockquote>
+<p>相关讨论与问题，可前往 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun/discussions/categories/q-a">Discussions</a> 反馈。</p>
+<blockquote>
+<p>主题相关问题请到 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun/issues">Issues ｜ hexo-theme-yun</a> 反馈。</p>
+</blockquote>
+<hr>
+<p>Q.E.D.</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Rockivy</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://rockivy.github.io/posts/how-to-build-your-site/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://rockivy.github.io/posts/how-to-build-your-site/')">教你如何从零开始搭建一个属于自己的网站</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://rockivy.github.io/posts/how-to-build-your-site/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=教你如何从零开始搭建一个属于自己的网站&amp;url=http://rockivy.github.io/posts/how-to-build-your-site/&amp;pic=/img/default_cover.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Rockivy.github.io" target="_blank">是三水呀( •̀ ω •́ )✧</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%88%86%E4%BA%AB/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>分享<span class="tagsPageCount">19</span></a><a class="post-meta__box__tags" href="/tags/Hexo/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Hexo<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E6%95%99%E7%A8%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>教程<span class="tagsPageCount">2</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/default_cover.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/use-cdn-speed-up-site/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">使用 CDN 加速你的 GitHub Pages 网站</div></div></a></div><div class="next-post pull-right"><a href="/posts/i-am-er-ci-yuan-and-try-to-prove/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">👴就是二次元，故尝试证明。</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/posts/hexo-theme-yun-strato/" title="Strato - Hexo 主题「Yun」版本宣传 PV"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2020-08-28</div><div class="title">Strato - Hexo 主题「Yun」版本宣传 PV</div></div></a></div><div><a href="/posts/trans-learn-latex-in-30-minutes/" title="【译】30 分钟学会 LaTeX"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2019-10-28</div><div class="title">【译】30 分钟学会 LaTeX</div></div></a></div><div><a href="/posts/coding-webide-dev-env/" title="Coding WebIDE 云端开发实验室"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2017-10-11</div><div class="title">Coding WebIDE 云端开发实验室</div></div></a></div><div><a href="/posts/discourse-forum/" title="Discourse 新一代开源论坛"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2017-10-15</div><div class="title">Discourse 新一代开源论坛</div></div></a></div><div><a href="/posts/give-me-money/" title="YunYouJun&#x2F;give-me-money"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2017-12-26</div><div class="title">YunYouJun&#x2F;give-me-money</div></div></a></div><div><a href="/posts/hana-saku-iroha-weiwei-bonboru/" title="【花开物语|MAD】幹物女(WeiWei)-Bonboru!"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2017-01-22</div><div class="title">【花开物语|MAD】幹物女(WeiWei)-Bonboru!</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">分享<b style="color:#fff">自己对</b>编程的<b style="color:#fff">热爱</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">分享对<b style="color:#fff">美好生活的向往</b>和<b style="color:#fff">对知识海洋的探索</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Rockivy</h1><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Rockivy" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/PQ781826" target="_blank" title="CSDN"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-csdn2"></use></svg></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">1.1.</span> <span class="toc-text">关键词</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="toc-number">2.1.</span> <span class="toc-text">安装 Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-%E4%B8%8E-GitHub"><span class="toc-number">2.2.</span> <span class="toc-text">Git 与 GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装 Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C-GitHub"><span class="toc-number">2.2.2.</span> <span class="toc-text">注册 GitHub</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">2.3.</span> <span class="toc-text">安装 Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Hexo-%E4%B8%BB%E9%A2%98"><span class="toc-number">2.3.1.</span> <span class="toc-text">使用 Hexo 主题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-Hexo-%E4%B8%BB%E9%A2%98"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">下载 Hexo 主题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E8%BE%91-Hexo-%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">编辑 Hexo 配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">自定义主题配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">生成静态文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%BB%BA%E7%AB%8B%E5%85%B3%E8%81%94"><span class="toc-number">2.5.</span> <span class="toc-text">与远程仓库建立关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">2.6.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">2.7.</span> <span class="toc-text">备份与自动部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-number">2.8.</span> <span class="toc-text">开始写作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-number">2.8.1.</span> <span class="toc-text">文章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE-%E5%88%86%E7%B1%BB"><span class="toc-number">2.8.1.1.</span> <span class="toc-text">添加标签&#x2F;分类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2"><span class="toc-number">2.8.2.</span> <span class="toc-text">页面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-number">3.</span> <span class="toc-text">FAQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">视频？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E4%BD%A0%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%9F"><span class="toc-number">3.2.</span> <span class="toc-text">如何绑定你的自定义域名？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E6%A1%88"><span class="toc-number">3.3.</span> <span class="toc-text">备案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E5%8F%AF%E8%83%BD%E6%9C%89%E5%B8%AE%E5%8A%A9%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">3.4.</span> <span class="toc-text">更多可能有帮助的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B9%B3%E5%8F%B0"><span class="toc-number">3.5.</span> <span class="toc-text">其他平台</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hello-world/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/hello-world/" title="Hello World">Hello World</a><time datetime="2024-05-22T05:21:45.646Z" title="发表于 2024-05-22 13:21:45">2024-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ai-sfc/" title="没有红包封面，但是 AI 春联……"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没有红包封面，但是 AI 春联……"/></a><div class="content"><a class="title" href="/posts/ai-sfc/" title="没有红包封面，但是 AI 春联……">没有红包封面，但是 AI 春联……</a><time datetime="2024-02-09T15:35:00.000Z" title="发表于 2024-02-09 23:35:00">2024-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/valaxy-best-practice/" title="Valaxy - 又一个博客框架暨我的最佳实践"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Valaxy - 又一个博客框架暨我的最佳实践"/></a><div class="content"><a class="title" href="/posts/valaxy-best-practice/" title="Valaxy - 又一个博客框架暨我的最佳实践">Valaxy - 又一个博客框架暨我的最佳实践</a><time datetime="2023-04-24T12:18:53.000Z" title="发表于 2023-04-24 20:18:53">2023-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/want-more-do-less/" title="年终回顾-想的太多，做的太少"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="年终回顾-想的太多，做的太少"/></a><div class="content"><a class="title" href="/posts/want-more-do-less/" title="年终回顾-想的太多，做的太少">年终回顾-想的太多，做的太少</a><time datetime="2023-01-26T12:45:58.000Z" title="发表于 2023-01-26 20:45:58">2023-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/home-firework-red-bag/" title="家·烟花·红包封面"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="家·烟花·红包封面"/></a><div class="content"><a class="title" href="/posts/home-firework-red-bag/" title="家·烟花·红包封面">家·烟花·红包封面</a><time datetime="2023-01-20T22:08:46.000Z" title="发表于 2023-01-21 06:08:46">2023-01-21</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/" title="Rockivy" target="_blank">Rockivy</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://yijuzhan.com/api/word.php?m=js').then(() => {
+    const con = str[0]
+    if (true) {
+      const from = '出自 ' + str[1]
+      const sub = ["在没有动态的日子，也在好好生活。","生活明朗&#44; 万物可爱&#44; 人间值得&#44; 未来可期."]
+      sub.unshift(con, from)
+      window.typed = new Typed('#footer-type-tips', {
+        strings: sub,
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: true,
+        backSpeed: 50,
+      })
+    } else {
+      document.getElementById('footer-type-tips').innerHTML = con
+    }
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/Rockivy" title="我的Github">我的Github</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://blog.csdn.net/PQ781826" title="我的CSDN">我的CSDN</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">88</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">92</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">17</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 0.88rem;">AI<sup>1</sup></a><a href="/tags/Blender/" style="font-size: 0.88rem;">Blender<sup>1</sup></a><a href="/tags/CSS/" style="font-size: 0.88rem;">CSS<sup>2</sup></a><a href="/tags/Canvas/" style="font-size: 0.88rem;">Canvas<sup>2</sup></a><a href="/tags/CoolQ/" style="font-size: 0.88rem;">CoolQ<sup>1</sup></a><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 0.88rem;">GitHub<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem;">Hexo<sup>2</sup></a><a href="/tags/Linux/" style="font-size: 0.88rem;">Linux<sup>1</sup></a><a href="/tags/MAD/" style="font-size: 0.88rem;">MAD<sup>1</sup></a><a href="/tags/React/" style="font-size: 0.88rem;">React<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 0.88rem;">SEO<sup>1</sup></a><a href="/tags/Web/" style="font-size: 0.88rem;">Web<sup>2</sup></a><a href="/tags/%E4%B8%AD%E4%BC%A0/" style="font-size: 0.88rem;">中传<sup>11</sup></a><a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 0.88rem;">作品<sup>11</sup></a><a href="/tags/%E5%85%BB%E7%8C%AA/" style="font-size: 0.88rem;">养猪<sup>1</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>19</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>3</sup></a><a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 0.88rem;">动画<sup>6</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>14</sup></a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 0.88rem;">小说<sup>7</sup></a><a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 0.88rem;">年终总结<sup>1</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.88rem;">日记<sup>12</sup></a><a href="/tags/%E6%97%B6%E5%85%89/" style="font-size: 0.88rem;">时光<sup>16</sup></a><a href="/tags/%E6%98%A5%E8%81%94/" style="font-size: 0.88rem;">春联<sup>1</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 0.88rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B2%99%E9%9B%95/" style="font-size: 0.88rem;">沙雕<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%8E%A9%E5%85%B7/" style="font-size: 0.88rem;">玩具<sup>1</sup></a><a href="/tags/%E7%95%AA%E5%A4%96/" style="font-size: 0.88rem;">番外<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 0.88rem;">目标检测<sup>1</sup></a><a href="/tags/%E7%9E%8E%E9%B8%A1%E5%84%BF%E7%94%BB/" style="font-size: 0.88rem;">瞎鸡儿画<sup>2</sup></a><a href="/tags/%E7%A4%BE%E5%9B%A2/" style="font-size: 0.88rem;">社团<sup>1</sup></a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 0.88rem;">科幻<sup>5</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">笔记<sup>22</sup></a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 0.88rem;">脚本<sup>1</sup></a><a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">论坛<sup>1</sup></a><a href="/tags/%E9%83%A8%E8%90%BD/" style="font-size: 0.88rem;">部落<sup>4</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.88rem;">项目<sup>3</sup></a><a href="/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" style="font-size: 0.88rem;">高斯模糊<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Rockivy 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4557345_b8ltt0rtskq.js?spm=a313x.manage_type_myprojects.i1.10.11183a81E3Gv5U&amp;file=font_4557345_b8ltt0rtskq.js"></script><script defer pjax src="/js/custom.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

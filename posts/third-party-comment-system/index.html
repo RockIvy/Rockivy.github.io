@@ -1,0 +1,600 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>第三方评论系统之我见 | 是三水呀( •̀ ω •́ )✧</title><meta name="keywords" content="Disqus,Valine,评测,Gitalk"><meta name="author" content="Rockivy"><meta name="copyright" content="Rockivy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="第三方评论系统之我见"><meta name="application-name" content="第三方评论系统之我见"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="第三方评论系统之我见"><meta property="og:url" content="http://rockivy.github.io/posts/third-party-comment-system/index.html"><meta property="og:site_name" content="是三水呀( •̀ ω •́ )✧"><meta property="og:description" content="静态博客纵有万般好，但不得不承认其常常需要很多奇技淫巧，方能实现甚至无法实现动态网站仅需数行代码便可实现的功能。 评论系统便是其代表之一。 我尝试过数种第三方评论系统（Disqus&amp;#x2F;Gitalk&amp;#x2F;Valine&amp;#x2F;LiveRe(来必力)&amp;#x2F;畅言&amp;#x2F;utter"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://rockivy.github.io/img/default_cover.webp"><meta property="article:author" content="Rockivy"><meta property="article:tag" content="‘ivy'"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://rockivy.github.io/img/default_cover.webp"><meta name="description" content="静态博客纵有万般好，但不得不承认其常常需要很多奇技淫巧，方能实现甚至无法实现动态网站仅需数行代码便可实现的功能。 评论系统便是其代表之一。 我尝试过数种第三方评论系统（Disqus&amp;#x2F;Gitalk&amp;#x2F;Valine&amp;#x2F;LiveRe(来必力)&amp;#x2F;畅言&amp;#x2F;utter"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://rockivy.github.io/posts/third-party-comment-system/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"af4a0eb4d2be2134ac6cacbc322794d71bd32a","Referer":"http://127.0.0.1:4000/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 努力持家小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Rockivy","link":"链接: ","source":"来源: 是三水呀( •̀ ω •́ )✧","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '是三水呀( •̀ ω •́ )✧',
+  title: '第三方评论系统之我见',
+  postAI: '',
+  pageFillDescription: '评论系统, , , , , , , , , 对比, 总结静态博客纵有万般好但不得不承认其常常需要很多奇技淫巧方能实现甚至无法实现动态网站仅需数行代码便可实现的功能评论系统便是其代表之一我尝试过数种第三方评论系统来必力畅言并在其中反复横跳丢失了不少可爱的评论也很遗憾未能找到一款真正百无挑剔的评论系统一个事物的发展往往是一个波浪式前进循环往复式上升的过程我将简单对我使用过的评论系统之利弊进行对比分析可能包含许多个人色彩以便各位看官参考评论系统作为当前最大的第三方评论系统功能强大也不用担心数据跑路使用广泛一个账号可以通用许多博客评论甚至可以和均使用作为评论系统的网站建立联系形成社区但对于国内来说却有一个致命缺点需要科学上网还可以使用为无法连通的访客通过在前端页面渲染一个评论列表但真正想要评论仍须科学上网则可以代理我尝试使用了一下填写作者的时竟然直接创建到作者的讨论里了也就是说还是需要自建又稍微脱离了使用第三方评论的初心我原本已经痛定思痛准备更换了却发现其加载的请求与资源相当多即便我已经关闭了的追踪和返利链接最终还是退缩起来以下是小伙伴们的一些可以参考的优化手段使不再拖累性能和页面加载在特殊地区科学使用评论系统的幻想乡其实如果不是因为被墙我还是很想直接用的但是我还是有评论就很高兴的人所以不想因此而有过高门槛对了后来我写了一个转评论的小工具见如何从迁移至在诞生之前还有一款应该说是第一款利用的评论系统但是作者前后维护不到三个月便弃坑了虽然开源项目无可指责但自己作为满怀期待的初期用户着实还是有些不开心相比则持续维护了很久所以首先肯定与感谢作者的开源精神与贡献不过中途因为的安全策略改变每次进入文章都会调用而收到了一大堆的安全警告邮件现在已经修复而关闭了一段时间也一直没有再启用以及调用时会申请获取对所有公开项目的读写权限如下图所示你可以到此处尝试登陆这似乎是因为无法继续划分权限也就是说使用评论的用户必须完全相信博主的不会作恶同时因为不支持还必须经过这一代理才能获取当然也可以选择自建但是不是有些脱离选择静态博客的初心了呢没错我就是懒所以我着实有些不放心也从用户的角度没有自信能完全取得游客的信任有些用户使用时可能没有注意到这里所以也算提个醒我最理想的情况是在不传入等参数只提供必要的时可以渲染文章对应标题的评论内容类似于的感觉理论上是可以实现的毕竟本来就都是公开的也有完备的然后当用户想要评论时点击链接跳转到对应进行回复即可这样登陆验证等全交给来做就可以了我尝试提了个如果能得到回复和实现就再好不过不行的话就日后有空尝试自己能不能写出来嗯有空咕咕咕似乎很不错可以作为的替代品当关闭后一直是我在使用的方案关于邮件提醒等功能则可以使用但是最近不知何故在里写上了由于某些原因目录将从后暂停更新也就是说相当于开始闭源且在闭源后作者在其中加入了百度统计我翻看了似乎没有再找到相关代码加之昨日始终登不上去只是我个人询问了其他朋友都正常自己睡了一觉后也正常了让我有点担忧起评论的数据说到底其实一直都是在白嫖的开发版的免费资源而这数据本身就算丢失了也无需对此负责所以对于是否继续使用也有所动摇起来被人用一言刷了评论不过我不确定是仅仅针对我还是针对了一些使用的用户结合之前的种种顾虑最终决定长痛不如短痛弃用如果您有任何关于博客内容的相关讨论欢迎前往与我交流我切换为近一月后收到的评论寥寥无几因此我决定尝试一下对不起请原谅我的虚荣事实上第一波评论被刷受害者是广大用户而刷的内容正是宣传关于被人恶意冒用身份发送垃圾评论的声明事情的真相我们不得而知不过这也确实让我意识到匿名无后端评论以及暴露的坏处我之所以将我的博客源文件包括所有配置均开源本意是方便同样想要搭建博客的朋友参考并兀自猜想只要大家都好好相处是不会有人闲到来做这一类事情我向来是不惮以最坏的恶意来推测中国人的鲁迅纪念刘和珍君的数据结构继承自因此数据是可以无缝迁移的但是最方便的方式是使用进行部署位于国外而我的应用位于国内这导致两者的连通性非常差甚至时常超时返回错误后台查询评论时常返回因此我将国内版数据转移至了国际版目前一切顺利对了官方导出的数据每项末尾都少了还得自己用编辑器批量加上国内版迁移国际版畅言国内搜狐旗下的评论系统算是国内还幸存的屈指可数的几家多说网易云跟帖均已关闭但是都年了官网还没有强制跳转还是比较稀奇的过去我曾经使用过印象里它会自行给你插广告且占位很大此外用户还须绑定手机号所以基本不考虑来必力来必力是一家来自韩国的评论系统支持多种账号连接登陆微信百度微博豆瓣等等很接地气且好处是不需要科学上网官网甚至是备案过的但是国内访问速度还是比较慢因其体量仍旧担心是否能够坚持下去不倒闭毕竟国外用户大多数会直接选择而这也不是国内本土产品截至目前官网显示的客户量竟然只有个对于已经运行数年的网站来说是不是有些过少了呢但光就其功能上来说还是值得一用的一个轻量的基于的评论挂件评论区里朋友的推荐使用在没有时自动帮我们发起使用进行权限认证请求了更少的用户权限使用方便只需要插入脚本即可且只需要授权一次在其他使用该插件的评论中可以直接评论此前一直挂着梯子没注意实际上需要请求的所以不开梯子也很难成功加载表达执手对影成双做的的中文版本在正式推出后应该说是果不其然地诞生了它受到了的启发但相比有着更好的权限划分以及本就是为了讨论而生因此可以直接回复对应内容且使用各式各样的图标反馈且国内似乎尚未被墙国内也可以正常加载评论但不确保以后毕竟你懂的但我已经使用了一段时间考虑到评论数据所以并不打算迁移对比第三方评论系统开源速度国内是否可直接访问可否实现数据可靠性慢市场占有率高可靠中等还在一天就永远不用担心较慢存疑薛定谔的开源快取决于看你是不是付费用户了快同上等价于带后端的以下是同一个页面加载不同评论系统时的信息为不加载评论系统懒得配置了速度应该在与之间影响不大简而言之最重最慢最轻最快与之对应的自然是功能强弱总结回顾下来我现在最能信任的还是与体量足够大不用担心跑路虽然很想直接用但是我本身就不是产出硬核技术文章的人对于想要评论的游客要求科学上网未免有些苛刻倒是既慷慨又实用所以要是能渲染评论预览想评论的点击链接跳转对应就好了所以我目前的解决方案是和混用但是结果大家基本都是直接用的评论区的我设置了跳转搜索对应文章标题的当没有相关时大家也可以通过预置的评论模版新建但是因为要多跳几个链接无法直接显示在评论区中预览所以基本没有人用不过我认为相比的数据保不准哪天我就因为各种原因不得不抛弃它了显然要更为可靠些所以重要的留言可以考虑留在里哦最近则在内测感觉也是一个不错的交流方式其实是论坛权限方面或许会更加友好值得期待诞生啦同样基于可以抵消权限方面的担忧但使用了对于国内来说访问还是很慢',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-08 13:30:40',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" /><meta name="generator" content="Hexo 7.2.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">是三水呀( •̀ ω •́ )✧</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.05rem;">AI<sup>1</sup></a><a href="/tags/Blender/" style="font-size: 1.05rem;">Blender<sup>1</sup></a><a href="/tags/CSS/" style="font-size: 1.05rem;">CSS<sup>2</sup></a><a href="/tags/Canvas/" style="font-size: 1.05rem;">Canvas<sup>2</sup></a><a href="/tags/CoolQ/" style="font-size: 1.05rem;">CoolQ<sup>1</sup></a><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 1.05rem;">GitHub<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 1.05rem;">Hexo<sup>2</sup></a><a href="/tags/Linux/" style="font-size: 1.05rem;">Linux<sup>1</sup></a><a href="/tags/MAD/" style="font-size: 1.05rem;">MAD<sup>1</sup></a><a href="/tags/React/" style="font-size: 1.05rem;">React<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 1.05rem;">SEO<sup>1</sup></a><a href="/tags/Web/" style="font-size: 1.05rem;">Web<sup>2</sup></a><a href="/tags/%E4%B8%AD%E4%BC%A0/" style="font-size: 1.05rem;">中传<sup>11</sup></a><a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 1.05rem;">作品<sup>11</sup></a><a href="/tags/%E5%85%BB%E7%8C%AA/" style="font-size: 1.05rem;">养猪<sup>1</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">分享<sup>19</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>3</sup></a><a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 1.05rem;">动画<sup>6</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>14</sup></a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.05rem;">小说<sup>7</sup></a><a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1.05rem;">年终总结<sup>1</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 1.05rem;">日记<sup>12</sup></a><a href="/tags/%E6%97%B6%E5%85%89/" style="font-size: 1.05rem;">时光<sup>16</sup></a><a href="/tags/%E6%98%A5%E8%81%94/" style="font-size: 1.05rem;">春联<sup>1</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 1.05rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B2%99%E9%9B%95/" style="font-size: 1.05rem;">沙雕<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%8E%A9%E5%85%B7/" style="font-size: 1.05rem;">玩具<sup>1</sup></a><a href="/tags/%E7%95%AA%E5%A4%96/" style="font-size: 1.05rem;">番外<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 1.05rem;">目标检测<sup>1</sup></a><a href="/tags/%E7%9E%8E%E9%B8%A1%E5%84%BF%E7%94%BB/" style="font-size: 1.05rem;">瞎鸡儿画<sup>2</sup></a><a href="/tags/%E7%A4%BE%E5%9B%A2/" style="font-size: 1.05rem;">社团<sup>1</sup></a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.05rem;">科幻<sup>5</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">笔记<sup>22</sup></a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 1.05rem;">脚本<sup>1</sup></a><a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">论坛<sup>1</sup></a><a href="/tags/%E9%83%A8%E8%90%BD/" style="font-size: 1.05rem;">部落<sup>4</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.05rem;">项目<sup>3</sup></a><a href="/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" style="font-size: 1.05rem;">高斯模糊<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E5%88%86%E4%BA%AB/" itemprop="url">云游的小分享</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Disqus/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Disqus</span></a><a class="article-meta__tags" href="/tags/Valine/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Valine</span></a><a class="article-meta__tags" href="/tags/%E8%AF%84%E6%B5%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>评测</span></a><a class="article-meta__tags" href="/tags/Gitalk/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Gitalk</span></a></span></div></div><h1 class="post-title" itemprop="name headline">第三方评论系统之我见</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2020-05-17T05:30:40.000Z" title="发表于 2020-05-17 13:30:40">2020-05-17</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2021-07-08T05:30:40.000Z" title="更新于 2021-07-08 13:30:40">2021-07-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="第三方评论系统之我见"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为杭州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>杭州</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/default_cover.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://rockivy.github.io/posts/third-party-comment-system/"><header><a class="post-meta-categories" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E5%88%86%E4%BA%AB/" itemprop="url">云游的小分享</a><a href="/tags/Disqus/" tabindex="-1" itemprop="url">Disqus</a><a href="/tags/Valine/" tabindex="-1" itemprop="url">Valine</a><a href="/tags/%E8%AF%84%E6%B5%8B/" tabindex="-1" itemprop="url">评测</a><a href="/tags/Gitalk/" tabindex="-1" itemprop="url">Gitalk</a><h1 id="CrawlerTitle" itemprop="name headline">第三方评论系统之我见</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Rockivy</span><time itemprop="dateCreated datePublished" datetime="2020-05-17T05:30:40.000Z" title="发表于 2020-05-17 13:30:40">2020-05-17</time><time itemprop="dateCreated datePublished" datetime="2021-07-08T05:30:40.000Z" title="更新于 2021-07-08 13:30:40">2021-07-08</time></header><p>静态博客纵有万般好，但不得不承认其常常需要很多奇技淫巧，方能实现<del>甚至无法实现</del>动态网站仅需数行代码便可实现的功能。</p>
+<p>评论系统便是其代表之一。</p>
+<p>我尝试过数种第三方评论系统（Disqus&#x2F;Gitalk&#x2F;Valine&#x2F;LiveRe(来必力)&#x2F;畅言&#x2F;utterance&#x2F;giscus），并在其中反复横跳，丢失了不少可爱的评论，也很遗憾未能找到一款真正百无挑剔的评论系统。</p>
+<blockquote>
+<p>一个事物的发展往往是一个波浪式前进、循环往复式上升的过程。</p>
+</blockquote>
+<p>我将简单对我使用过的评论系统之利弊进行对比分析（可能包含许多个人色彩），以便各位看官参考。</p>
+<span id="more"></span>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cos.yunyoujun.cn/blog/posts/jump-repeatedly.jpg" alt="反复横跳.jpg"></p>
+<hr>
+<h2 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h2><h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a><a target="_blank" rel="noopener" href="http://disqus.com/">Disqus</a></h3><p><a target="_blank" rel="noopener" href="http://disqus.com/">Disqus</a> 作为当前最大的第三方评论系统，功能强大，也不用担心数据跑路。<br>使用广泛，一个账号可以通用许多博客评论，甚至可以和均使用 Disqus 作为评论系统的网站建立联系，形成社区。</p>
+<p>但对于国内来说，却有一个致命缺点，需要科学上网。</p>
+<blockquote>
+<p>还可以使用 <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">DisqusJS</a>，为无法连通 Disqus 的访客通过 Disqus API 在前端页面渲染一个评论列表。但真正想要评论，仍须科学上网。<br><a target="_blank" rel="noopener" href="https://github.com/fooleap/disqus-php-api">disqus-php-api</a> 则可以代理 Disqus，我尝试使用了一下，填写作者的 API 时，竟然直接创建到<a target="_blank" rel="noopener" href="https://disqus.com/home/forum/fooleap/">作者的讨论</a>里了……也就是说还是需要自建，又稍微脱离了使用第三方评论的初心。</p>
+</blockquote>
+<p>我原本已经痛定思痛准备更换 Disqus 了，却发现其加载的请求与资源相当多（即便我已经关闭了 Disqus 的追踪和返利链接），最终还是退缩起来。</p>
+<p>以下是小伙伴们的一些可以参考的优化手段。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.skk.moe/post/prevent-disqus-from-slowing-your-site/">使 Disqus 不再拖累性能和页面加载 | Sukka’s Blog</a><br><a target="_blank" rel="noopener" href="https://blog.ichr.me/post/use-disqus-conveniently/">在特殊地区科学使用 Disqus 评论系统 | ChrAlpha 的幻想乡</a></p>
+</blockquote>
+<p>其实如果不是因为被墙，我还是很想直接用 Disqus 的，但是我还是有评论就很高兴的人，所以不想因此而有过高门槛。</p>
+<blockquote>
+<p>对了，后来我写了一个 valine 转 disqus 评论的小工具。见 <a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/posts/migrate-from-valine-to-disqus/">如何从 Valine 迁移至 Disqus</a>。</p>
+</blockquote>
+<h3 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk"></a><a target="_blank" rel="noopener" href="https://gitalk.github.io/">Gitalk</a></h3><p>在 <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">Gitalk</a> 诞生之前，还有一款 <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment/">Gitment</a>。</p>
+<p>应该说 Gitment 是第一款利用 GitHub Issues 的评论系统。但是作者前后维护不到三个月便弃坑了。<br>虽然开源项目无可指责，但自己作为满怀期待的初期用户着实还是有些不开心。</p>
+<p>Gitalk 相比 Gitment 则持续维护了很久。所以首先肯定与感谢作者的开源精神与贡献。</p>
+<p>不过中途因为 GitHub API 的安全策略改变，每次进入文章都会调用 Gitalk 而收到了一大堆的安全警告邮件。</p>
+<blockquote>
+<p>现在已经修复 <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/issues/343">GitHub app API query parameter deprecation</a></p>
+</blockquote>
+<p>而关闭了一段时间，也一直没有再启用。</p>
+<p>以及 Gitalk 调用 OAuth 时会申请获取对所有公开项目的读<strong>写</strong>权限，如下图所示。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://r2.yunyoujun.cn/images/gitalk-security.jpg" alt="Gitalk 安全性问题"></p>
+<p>你可以到<a target="_blank" rel="noopener" href="https://gitalk.github.io/">此处</a>尝试登陆。</p>
+<blockquote>
+<p>这似乎是因为 GitHub 无法继续划分权限。</p>
+</blockquote>
+<p>也就是说使用 Gitalk 评论的用户必须完全相信博主的 OAuth 不会作恶，同时因为 GitHub OAuth 不支持 CORS (<a target="_blank" rel="noopener" href="https://github.com/isaacs/github/issues/330">OAuth web flow endpoints don’t support CORS</a>)，<code>access_token</code> 还必须经过 <code>https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token</code> 这一代理才能获取。</p>
+<p>当然也可以选择自建，但是不是有些脱离选择静态博客的初心了呢。<del>没错，我就是懒。</del></p>
+<p>所以我着实有些不放心，也从用户的角度没有自信能完全取得游客的信任。（有些用户使用 GitHub OAuth 时可能没有注意到这里，所以也算提个醒。）</p>
+<p>我最理想的情况是 gitalk 在不传入 <code>clientSecret</code> 等参数，只提供必要的 <code>repo</code> 时，可以渲染文章对应标题的 Issue 评论内容。（类似于 Sukka 的 <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">DisqusJS</a>）</p>
+<blockquote>
+<p>感觉理论上是可以实现的，毕竟本来 Issue 就都是公开的。GitHub 也有完备的 <a target="_blank" rel="noopener" href="https://developer.github.com/v3/">API</a>。</p>
+</blockquote>
+<p>然后当用户想要评论时，点击链接跳转到对应 Issue 进行回复即可。这样登陆验证等全交给 GitHub 来做就可以了。</p>
+<blockquote>
+<p>我尝试提了个 ISSUE: <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/issues/383">[Feature Request] Only render issues content without clientSecret</a><br><del>如果能得到回复和实现就再好不过。（不行的话，就日后有空尝试自己能不能写出来，嗯，有空，咕咕咕。）</del><br><a target="_blank" rel="noopener" href="https://utteranc.es/">utterances</a> 似乎很不错，可以作为 Gitalk 的替代品。</p>
+</blockquote>
+<h3 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a><a target="_blank" rel="noopener" href="https://valine.js.org/">Valine</a></h3><p>当 Gitalk 关闭后，<a target="_blank" rel="noopener" href="https://github.com/xCss/Valine">Valine</a> 一直是我在使用的方案。</p>
+<blockquote>
+<p>关于邮件提醒等功能则可以使用 <a target="_blank" rel="noopener" href="https://github.com/DesertsP/Valine-Admin">Valine-Admin</a></p>
+</blockquote>
+<p>但是最近 Valine 不知何故在 <a target="_blank" rel="noopener" href="https://github.com/xCss/Valine/blob/master/README.md">README</a> 里写上了 <code>由于某些原因，src目录将从v1.4.0后暂停更新.</code>。</p>
+<p>也就是说 Valine 相当于开始闭源。</p>
+<p>且在闭源后，作者在其中加入了百度统计（<a target="_blank" rel="noopener" href="https://github.com/xCss/Valine/issues/258">v1.4.2, v1.4.1 will always load stats plugin from hm.baidu.com</a>），我翻看了 <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js">v1.14.14</a> 似乎没有再找到相关代码。</p>
+<p>加之昨日，LeanCloud 始终登不上去（只是我个人，询问了其他朋友都正常，自己睡了一觉后也正常了），让我有点担忧起评论的数据。<br>说到底，其实一直都是在白嫖的 <a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud</a> 开发版的免费资源，而这数据本身就算丢失了 LeanCloud 也无需对此负责。</p>
+<p>所以对于是否继续使用 Valine 也有所动摇起来。</p>
+<blockquote>
+<p>2020-01-09</p>
+</blockquote>
+<p>被人用一言刷了评论，不过我不确定是仅仅针对我，还是针对了一些使用 Valine 的用户。结合之前的种种顾虑，最终决定长痛不如短痛，弃用 Valine。</p>
+<p>如果您有任何关于博客内容的相关讨论，欢迎前往 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions">Discussions</a> 与我交流。</p>
+<h3 id="Waline"><a href="#Waline" class="headerlink" title="Waline"></a><a target="_blank" rel="noopener" href="https://waline.js.org/">Waline</a></h3><p>我切换为 Disqus 近一月后，收到的评论寥寥无几。因此我决定尝试一下 <a target="_blank" rel="noopener" href="https://github.com/lizheming/waline/">Waline</a>。</p>
+<blockquote>
+<p>2020-01-30<br>对不起，请原谅我的虚荣。</p>
+</blockquote>
+<p>事实上，第一波评论被刷，受害者是广大 Valine 用户，而刷的内容正是宣传 Waline。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://imnerd.org/spam-statement.html">关于被人恶意冒用身份发送垃圾评论的声明</a></p>
+</blockquote>
+<p>事情的真相我们不得而知。</p>
+<p>不过这也确实让我意识到，匿名无后端评论以及暴露 APP ID&#x2F;KEY 的坏处。</p>
+<p>我之所以将我的<a target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io">博客源文件包括所有配置</a>均开源，本意是方便同样想要搭建博客的朋友参考。<br>并兀自猜想，只要大家都好好相处，是不会有人闲到来做这一类事情。</p>
+<blockquote>
+<p>我向来是不惮以最坏的恶意，来推测中国人的。——鲁迅「纪念刘和珍君」</p>
+</blockquote>
+<p>Waline 的数据结构继承自 Valine，因此数据是可以无缝迁移的。<br>但是 Waline 最方便的方式是使用 Vercel 进行部署，Vercel 位于国外，而我的 LeanCloud 应用位于国内，这导致两者的连通性非常差，甚至时常超时，返回 502 错误。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/lizheming/waline/issues/150">[BUG] 后台查询评论时常返回 502 | #150</a></p>
+</blockquote>
+<p>因此我将 LeanCloud 国内版数据转移至了<a target="_blank" rel="noopener" href="https://leancloud.app/">国际版</a>，目前一切顺利。</p>
+<blockquote>
+<p>对了，LeanCloud 官方导出的 JSON 数据，每项末尾都少了 <code>,</code>，还得自己用编辑器批量加上。<br><a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/f1b15bed-9464-4c61-a41d-238a175af5d4">LeanCloud 国内版迁移国际版</a></p>
+</blockquote>
+<h3 id="畅言"><a href="#畅言" class="headerlink" title="畅言"></a><a target="_blank" rel="noopener" href="http://changyan.kuaizhan.com/">畅言</a></h3><p>国内搜狐旗下的评论系统。（算是国内还幸存的屈指可数的几家）（多说、网易云跟帖均已关闭。）</p>
+<p>但是，都 2020 年了，官网还没有强制 <code>https</code> 跳转还是比较稀奇的。</p>
+<p>过去我曾经使用过，印象里它会自行给你插广告且占位很大，此外用户还须绑定手机号。</p>
+<p>所以基本不考虑。</p>
+<h3 id="来必力-LiveRe"><a href="#来必力-LiveRe" class="headerlink" title="来必力 LiveRe"></a><a target="_blank" rel="noopener" href="https://livere.com/">来必力 LiveRe</a></h3><p><a target="_blank" rel="noopener" href="https://livere.com/">LiveRe 来必力</a> 是一家来自韩国的评论系统，支持多种 SNS 账号连接登陆（QQ、微信、GitHub、百度、微博、豆瓣、Twitter 等等），很接地气。<br>且好处是<strong>不</strong>需要科学上网（官网甚至是备案过的），但是国内访问速度还是比较慢。</p>
+<p>因其体量，仍旧担心是否能够坚持下去不倒闭。毕竟国外用户大多数会直接选择 Disqus，而这也不是国内本土产品。截至目前官网显示的客户量竟然只有 1,350 个，对于已经运行数年的网站来说，是不是有些过少了呢？</p>
+<p>但光就其功能上来说，还是值得一用的。</p>
+<hr>
+<h3 id="utterances"><a href="#utterances" class="headerlink" title="utterances"></a><a target="_blank" rel="noopener" href="https://utteranc.es/">utterances</a></h3><p>一个轻量的基于 GitHub Issues 的评论挂件。</p>
+<p>评论区里朋友的推荐。使用 <a target="_blank" rel="noopener" href="https://github.com/utterances-bot">utterances-bot</a> 在没有 Issue 时，自动帮我们发起 Issue，使用 GitHub App 进行权限认证，请求了更少的用户权限。</p>
+<p>使用方便，只需要插入脚本即可，且只需要授权一次，在其他使用该插件的评论中可以直接评论。</p>
+<p>此前一直挂着梯子没注意，实际上 utterances 需要请求 GitHub 的 API，所以不开梯子也很难成功加载。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://beaudar.lipk.org/">Beaudar - 表达</a> 执手对影成双 做的 Utterances 的中文版本。</p>
+</blockquote>
+<h3 id="Giscus"><a href="#Giscus" class="headerlink" title="Giscus"></a><a target="_blank" rel="noopener" href="https://giscus.app/">Giscus</a></h3><p>在 GitHub 正式推出 <a target="_blank" rel="noopener" href="https://docs.github.com/en/discussions">Discussions</a> 后，<a target="_blank" rel="noopener" href="https://github.com/laymonage/giscus">Giscus</a> 应该说是果不其然地诞生了，它受到了 <a target="_blank" rel="noopener" href="https://utteranc.es/">utterances</a> 的启发，但相比有着更好的权限划分，以及 Discussions 本就是为了讨论而生，因此可以直接回复对应内容，且使用 reactions （各式各样的图标反馈）。</p>
+<p>且国内似乎尚未被墙，国内也可以正常加载评论。（但不确保以后，毕竟……你懂的）</p>
+<p>但我已经使用了 Waline 一段时间，考虑到评论数据，所以并不打算迁移。</p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th align="left">第三方评论系统</th>
+<th align="left">开源</th>
+<th align="left">速度</th>
+<th align="left">国内是否可直接访问</th>
+<th align="left">可否实现 PJAX</th>
+<th>数据可靠性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Disqus</td>
+<td align="left">❌</td>
+<td align="left">慢</td>
+<td align="left">❌</td>
+<td align="left">✔️</td>
+<td>市场占有率高，可靠</td>
+</tr>
+<tr>
+<td align="left">Gitalk</td>
+<td align="left">✔️</td>
+<td align="left">中等</td>
+<td align="left">✔️</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/issues/205">❌</a></td>
+<td>GitHub 还在一天，就永远不用担心</td>
+</tr>
+<tr>
+<td align="left">LiveRe</td>
+<td align="left">❌</td>
+<td align="left">较慢</td>
+<td align="left">✔️</td>
+<td align="left">❌</td>
+<td>存疑</td>
+</tr>
+<tr>
+<td align="left">Valine</td>
+<td align="left">薛定谔的开源</td>
+<td align="left">快</td>
+<td align="left">✔️</td>
+<td align="left">✔️</td>
+<td>取决于 LeanCloud（看你是不是付费用户了）</td>
+</tr>
+<tr>
+<td align="left">Waline</td>
+<td align="left">✔️</td>
+<td align="left">快</td>
+<td align="left">✔️</td>
+<td align="left">✔️</td>
+<td>同上，等价于带后端的 Valine</td>
+</tr>
+</tbody></table>
+<p>以下是同一个页面加载不同评论系统时 <code>Dev Tools -&gt; Network</code> 的信息。（None 为不加载评论系统）</p>
+<blockquote>
+<p>Gitalk 懒得配置了，速度应该在 LiveRe 与 Valine 之间，影响不大。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">request</th>
+<th align="left">transferred</th>
+<th align="left">resources</th>
+<th align="left">Finish</th>
+<th align="left">DOMCOntentLoaded</th>
+<th align="left">Load</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">None</td>
+<td align="left">35</td>
+<td align="left">315 kB</td>
+<td align="left">850 kB</td>
+<td align="left">1.53 s</td>
+<td align="left">672 ms</td>
+<td align="left">1.52s</td>
+</tr>
+<tr>
+<td align="left">Disqus</td>
+<td align="left">94</td>
+<td align="left">1.9 MB</td>
+<td align="left">4.0 MB</td>
+<td align="left">16.51 s</td>
+<td align="left">1.38 s</td>
+<td align="left">2.24 s</td>
+</tr>
+<tr>
+<td align="left">LiveRe</td>
+<td align="left">60</td>
+<td align="left">1.1 MB</td>
+<td align="left">3.2 MB</td>
+<td align="left">13.06 s</td>
+<td align="left">1.14 s</td>
+<td align="left">1.98 s</td>
+</tr>
+<tr>
+<td align="left">Valine</td>
+<td align="left">43</td>
+<td align="left">408 kB</td>
+<td align="left">1.1 MB</td>
+<td align="left">5.66 s</td>
+<td align="left">1.29 s</td>
+<td align="left">1.83 s</td>
+</tr>
+</tbody></table>
+<p>简而言之，Disqus 最重最慢，Valine 最轻最快。与之对应的自然是功能强弱。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>回顾下来，我现在最能信任的还是 GitHub 与 Disqus。体量足够大，不用担心跑路。<br>虽然很想直接用 Disqus，但是我本身就不是产出硬核技术文章的人，对于想要评论的游客要求科学上网未免有些苛刻。</p>
+<p>GitHub 倒是既慷慨又实用，所以要是能渲染 Issue 评论预览，想评论的点击链接跳转对应 Issue 就好了。</p>
+<p>所以我目前的解决方案是 Valine 和 GitHub Issues 混用。（但是结果大家基本都是直接用的 Valine ……）</p>
+<p>评论区的 GitHub Issues 我设置了跳转搜索对应文章标题的 Issue，当没有相关 Issue 时，大家也可以通过预置的 Comment 评论模版，新建 Issue。</p>
+<blockquote>
+<p>但是因为要多跳几个链接，无法直接显示在评论区中预览，所以基本没有人用。<br>不过我认为相比 Valine 的数据（保不准哪天我就因为各种原因不得不抛弃它了），显然 GitHub 要更为可靠些。所以重要的留言可以考虑留在 Issue 里哦～</p>
+</blockquote>
+<p><del>GitHub 最近则在内测 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/free-pro-team@latest/discussions/quickstart">Discussions</a> 感觉也是一个不错的交流方式（其实是论坛），权限方面或许会更加友好，值得期待。</del>（Giscus 诞生啦～）</p>
+<p><a target="_blank" rel="noopener" href="https://utteranc.es/">utterances</a> 同样基于 GitHub Issues，可以抵消权限方面的担忧。但使用了 GitHub API，对于国内来说访问还是很慢。</p>
+<hr>
+<p>Q.E.D.</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Rockivy</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://rockivy.github.io/posts/third-party-comment-system/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://rockivy.github.io/posts/third-party-comment-system/')">第三方评论系统之我见</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://rockivy.github.io/posts/third-party-comment-system/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=第三方评论系统之我见&amp;url=http://rockivy.github.io/posts/third-party-comment-system/&amp;pic=/img/default_cover.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Rockivy.github.io" target="_blank">是三水呀( •̀ ω •́ )✧</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/Disqus/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Disqus<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/Valine/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Valine<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E8%AF%84%E6%B5%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>评测<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/Gitalk/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Gitalk<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/default_cover.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/life-is-not-a-marathon/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">人生不是一场马拉松</div></div></a></div><div class="next-post pull-right"><a href="/posts/make-el-bot/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">el-bot &amp; mirai-ts 制作笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/posts/migrate-from-valine-to-disqus/" title="如何从 Valine 迁移至 Disqus"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2020-10-03</div><div class="title">如何从 Valine 迁移至 Disqus</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/RockIvy/images/master/img/avatar22.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">分享<b style="color:#fff">自己对</b>编程的<b style="color:#fff">热爱</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">分享对<b style="color:#fff">美好生活的向往</b>和<b style="color:#fff">对知识海洋的探索</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Rockivy</h1><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Rockivy" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/PQ781826" target="_blank" title="CSDN"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-csdn2"></use></svg></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">评论系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Disqus"><span class="toc-number">1.1.</span> <span class="toc-text">Disqus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gitalk"><span class="toc-number">1.2.</span> <span class="toc-text">Gitalk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Valine"><span class="toc-number">1.3.</span> <span class="toc-text">Valine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Waline"><span class="toc-number">1.4.</span> <span class="toc-text">Waline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%85%E8%A8%80"><span class="toc-number">1.5.</span> <span class="toc-text">畅言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A5%E5%BF%85%E5%8A%9B-LiveRe"><span class="toc-number">1.6.</span> <span class="toc-text">来必力 LiveRe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#utterances"><span class="toc-number">1.7.</span> <span class="toc-text">utterances</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Giscus"><span class="toc-number">1.8.</span> <span class="toc-text">Giscus</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-number">2.</span> <span class="toc-text">对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hello-world/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/hello-world/" title="Hello World">Hello World</a><time datetime="2024-05-22T05:21:45.646Z" title="发表于 2024-05-22 13:21:45">2024-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ai-sfc/" title="没有红包封面，但是 AI 春联……"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没有红包封面，但是 AI 春联……"/></a><div class="content"><a class="title" href="/posts/ai-sfc/" title="没有红包封面，但是 AI 春联……">没有红包封面，但是 AI 春联……</a><time datetime="2024-02-09T15:35:00.000Z" title="发表于 2024-02-09 23:35:00">2024-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/valaxy-best-practice/" title="Valaxy - 又一个博客框架暨我的最佳实践"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Valaxy - 又一个博客框架暨我的最佳实践"/></a><div class="content"><a class="title" href="/posts/valaxy-best-practice/" title="Valaxy - 又一个博客框架暨我的最佳实践">Valaxy - 又一个博客框架暨我的最佳实践</a><time datetime="2023-04-24T12:18:53.000Z" title="发表于 2023-04-24 20:18:53">2023-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/want-more-do-less/" title="年终回顾-想的太多，做的太少"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="年终回顾-想的太多，做的太少"/></a><div class="content"><a class="title" href="/posts/want-more-do-less/" title="年终回顾-想的太多，做的太少">年终回顾-想的太多，做的太少</a><time datetime="2023-01-26T12:45:58.000Z" title="发表于 2023-01-26 20:45:58">2023-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/home-firework-red-bag/" title="家·烟花·红包封面"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="家·烟花·红包封面"/></a><div class="content"><a class="title" href="/posts/home-firework-red-bag/" title="家·烟花·红包封面">家·烟花·红包封面</a><time datetime="2023-01-20T22:08:46.000Z" title="发表于 2023-01-21 06:08:46">2023-01-21</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/" title="Rockivy" target="_blank">Rockivy</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://yijuzhan.com/api/word.php?m=js').then(() => {
+    const con = str[0]
+    if (true) {
+      const from = '出自 ' + str[1]
+      const sub = ["在没有动态的日子，也在好好生活。","生活明朗&#44; 万物可爱&#44; 人间值得&#44; 未来可期."]
+      sub.unshift(con, from)
+      window.typed = new Typed('#footer-type-tips', {
+        strings: sub,
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: true,
+        backSpeed: 50,
+      })
+    } else {
+      document.getElementById('footer-type-tips').innerHTML = con
+    }
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/Rockivy" title="我的Github">我的Github</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://blog.csdn.net/PQ781826" title="我的CSDN">我的CSDN</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">88</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">92</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">17</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 0.88rem;">AI<sup>1</sup></a><a href="/tags/Blender/" style="font-size: 0.88rem;">Blender<sup>1</sup></a><a href="/tags/CSS/" style="font-size: 0.88rem;">CSS<sup>2</sup></a><a href="/tags/Canvas/" style="font-size: 0.88rem;">Canvas<sup>2</sup></a><a href="/tags/CoolQ/" style="font-size: 0.88rem;">CoolQ<sup>1</sup></a><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>1</sup></a><a href="/tags/GitHub/" style="font-size: 0.88rem;">GitHub<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem;">Hexo<sup>2</sup></a><a href="/tags/Linux/" style="font-size: 0.88rem;">Linux<sup>1</sup></a><a href="/tags/MAD/" style="font-size: 0.88rem;">MAD<sup>1</sup></a><a href="/tags/React/" style="font-size: 0.88rem;">React<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 0.88rem;">SEO<sup>1</sup></a><a href="/tags/Web/" style="font-size: 0.88rem;">Web<sup>2</sup></a><a href="/tags/%E4%B8%AD%E4%BC%A0/" style="font-size: 0.88rem;">中传<sup>11</sup></a><a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 0.88rem;">作品<sup>11</sup></a><a href="/tags/%E5%85%BB%E7%8C%AA/" style="font-size: 0.88rem;">养猪<sup>1</sup></a><a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">分享<sup>19</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>3</sup></a><a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 0.88rem;">动画<sup>6</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>14</sup></a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 0.88rem;">小说<sup>7</sup></a><a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 0.88rem;">年终总结<sup>1</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.88rem;">日记<sup>12</sup></a><a href="/tags/%E6%97%B6%E5%85%89/" style="font-size: 0.88rem;">时光<sup>16</sup></a><a href="/tags/%E6%98%A5%E8%81%94/" style="font-size: 0.88rem;">春联<sup>1</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 0.88rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B2%99%E9%9B%95/" style="font-size: 0.88rem;">沙雕<sup>1</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%8E%A9%E5%85%B7/" style="font-size: 0.88rem;">玩具<sup>1</sup></a><a href="/tags/%E7%95%AA%E5%A4%96/" style="font-size: 0.88rem;">番外<sup>1</sup></a><a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 0.88rem;">目标检测<sup>1</sup></a><a href="/tags/%E7%9E%8E%E9%B8%A1%E5%84%BF%E7%94%BB/" style="font-size: 0.88rem;">瞎鸡儿画<sup>2</sup></a><a href="/tags/%E7%A4%BE%E5%9B%A2/" style="font-size: 0.88rem;">社团<sup>1</sup></a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 0.88rem;">科幻<sup>5</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">笔记<sup>22</sup></a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 0.88rem;">脚本<sup>1</sup></a><a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">论坛<sup>1</sup></a><a href="/tags/%E9%83%A8%E8%90%BD/" style="font-size: 0.88rem;">部落<sup>4</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.88rem;">项目<sup>3</sup></a><a href="/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" style="font-size: 0.88rem;">高斯模糊<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Rockivy 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4557345_b8ltt0rtskq.js?spm=a313x.manage_type_myprojects.i1.10.11183a81E3Gv5U&amp;file=font_4557345_b8ltt0rtskq.js"></script><script defer pjax src="/js/custom.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
